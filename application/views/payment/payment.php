@@ -46,14 +46,14 @@
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <div class="col-4">
+                    <div class="col-12 col-md-6 col-lg-4 col-xl-4">
                         <select id="method" onchange="changeMethod(this)" class="form-control w-100">
                             <option value="">..:Metode:..</option>
                             <option value="OFFLINE">OFFLINE</option>
                             <option value="ONLINE">ONLINE</option>
                         </select>
                     </div>
-                    <div class="col-8">
+                    <div class="col-12 col-md-6 col-lg-8 col-xl-8">
                         <div class="p-2 d-flex text-warning">
                             <span class="mr-1">
                                 <i class="fas fa-info-circle"></i>
@@ -63,7 +63,7 @@
                     </div>
                 </div>
                 <div class="row mt-4">
-                    <div class="col-4">
+                    <div class="col-12 col-md-6 col-lg-4 col-xl-4">
                         <div class="form-group row mb-0">
                             <label for="id" class="col-sm-4 col-form-label">ID MMU</label>
                             <div class="col-sm-8">
@@ -71,7 +71,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-8 pt-2">
+                    <div class="col-12 col-md-6 col-lg-8 col-xl-8 pt-2">
                         <div class="p-2 d-flex text-success">
                             <span class="mr-1">
                                 <i class="fas fa-info-circle"></i>
@@ -81,7 +81,7 @@
                     </div>
                 </div>
                 <div class="row mt-4">
-                    <div class="col-4">
+                    <div class="col-12 col-md-6 col-lg-4 col-xl-4">
                         <div class="form-group row">
                             <input type="hidden" id="id-result" value="0">
                             <label for="nominal" class="col-sm-4 col-form-label">Nominal</label>
@@ -90,11 +90,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-8">
-                        <div class="p-2 d-flex text-bold">
-                            <h6 id="name-result"></h6> <br>
-                            <h6 id="nominal-result" class="text-bold"></h6>
-                        </div>
+                    <div class="col-12 col-md-6 col-lg-8 col-xl-8">
+                        <h6 id="name-result"></h6>
+                        <h6 id="nominal-result" class="text-bold text-success"></h6>
                     </div>
                 </div>
             </div>

@@ -3,11 +3,11 @@
     <!-- Main content -->
     <section class="content p-3">
         <div class="row">
-            <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3 mb-2">
+            <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3 mb-2 d-none d-lg-block d-xl-block">
                 <h4 class="card-title mt-xl-1 pl-2">Data Peserta Muammar</h4>
             </div>
-            <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3 mb-2">
-                <select id="changeMMU" class="form-control w-100 select2bs4">
+            <div class="col-12 col-md-6 col-lg-3 col-xl-3 mb-2">
+                <select id="changeMMU" class="form-control form-control-sm w-100 select2bs4">
                     <option value="">..:Semua MMU:..</option>
                     <?php
                     if ($mmu) {
@@ -20,16 +20,16 @@
                     ?>
                 </select>
             </div>
-            <div class="col-sm-12 col-md-6 col-lg-3 col-xl-2 mb-2">
-                <select id="changeCategory" class="form-control w-100">
+            <div class="col-6 col-sm-12 col-md-6 col-lg-3 col-xl-2 mb-2">
+                <select id="changeCategory" class="form-control form-control-sm w-100">
                     <option value="">..:Kategori:..</option>
                     <option value="1">PUTRA</option>
                     <option value="2">PUTRI</option>
                 </select>
             </div>
-            <div class="col-sm-12 col-md-6 col-lg-3 col-xl-2 mb-2">
-                <select id="changeContest" class="form-control w-100" onchange="loadData()">
-                    <option value="">..:Pilih:..</option>
+            <div class="col-6 col-sm-12 col-md-6 col-lg-3 col-xl-2 mb-2">
+                <select id="changeContest" class="form-control form-control-sm w-100" onchange="loadData()">
+                    <option value="">..:Lomba:..</option>
                     <?php
                     foreach ($contest as $c) {
                     ?>
@@ -40,10 +40,10 @@
                 </select>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-3 col-xl-2 mb-2">
-                <button type="button" class="btn btn-primary w-100 <?= ($setting > 0) ? 'd-none' : 'd-inline-block' ?>" data-toggle="modal" data-target="#modal-contestant">
+                <button type="button" class="btn btn-primary btn-sm w-100 <?= ($setting > 0) ? 'd-none' : 'd-inline-block' ?>" data-toggle="modal" data-target="#modal-contestant">
                     <i class="fa fa-plus-circle"></i> Tambah Peserta
                 </button>
-                <button type="button" class="btn btn-danger w-100 <?= ($setting > 0) ? 'd-inline-block' : 'd-none' ?>" onclick="errorAlert('Pendaftaran peserta sudah ditutup')">
+                <button type="button" class="btn btn-danger btn-sm w-100 <?= ($setting > 0) ? 'd-inline-block' : 'd-none' ?>" onclick="errorAlert('Pendaftaran peserta sudah ditutup')">
                     <i class="fa fa-plus-circle"></i> Registrasi Ditutup
                 </button>
             </div>
