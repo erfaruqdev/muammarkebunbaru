@@ -247,4 +247,25 @@ class Setting extends CI_Controller
             $this->db->where('id', $item->id)->update('users', ['id' => $item->username]);
         }
     }
+
+    public function qrcodemid()
+    {
+        $this->load->library('ciqrcode');
+        $config['cacheable']    = true; //boolean, the default is true
+        $config['cachedir']             = './assets/'; //string, the default is application/cache/
+        $config['errorlog']             = './assets/'; //string, the default is application/logs/
+        $config['imagedir']             = './assets/images/qrcodes/'; //direktori penyimpanan qr code
+        $config['quality']              = true; //boolean, the default is true
+        $config['size']                 = '1024'; //interger, the default is 1024
+        $config['black']                = array(224,255,255); // array, default is array(255,255,255)
+        $config['white']                = array(70,130,180); // array, default is array(0,0,0)
+        $this->ciqrcode->initialize($config);
+
+        $image_name = '1391092023.png';
+        $params['data'] = 1391092023; //data yang akan di jadikan QR CODE
+        $params['level'] = 'H'; //H=High
+        $params['size'] = 10;
+        $params['savename'] = FCPATH.$config['imagedir'].$image_name; //simpan image QR CODE ke folder assets/images/
+        $this->ciqrcode->generate($params);
+    }
 }
