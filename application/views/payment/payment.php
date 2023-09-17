@@ -6,10 +6,10 @@
     <!-- Main content -->
     <section class="content p-3">
         <div class="row">
-            <div class="col-md-4 col-lg-4 col-xl-4 mb-2">
+            <div class="col-md-3 col-lg-3 col-xl-3 mb-2">
                 <h6 class="card-title mt-1">Pembayaran</h6>
             </div>
-            <div class="col-md-4 col-lg-4 col-xl-4 mb-2">
+            <div class="col-md-3 col-lg-3 col-xl-3 mb-2">
                 <input type="text" id="changeName" class="form-control form-control-sm w-100" autofocus onkeyup="loadData()">
             </div>
             <div class="col-md-2 col-lg-2 col-xl-2 mb-2">
@@ -18,6 +18,12 @@
                     <option value="OFFLINE">OFFLINE</option>
                     <option value="ONLINE">ONLINE</option>
                 </select>
+            </div>
+            <div class="col-md-2 col-lg-2 col-xl-2 mb-2">
+                <a href="<?= base_url() ?>payment/unpaid" target="_blank" class="btn mr-2 btn-sm btn-success btn-block">
+                    <i class="fa fa-download"></i>
+                    Download Rekap
+                </a>
             </div>
             <div class="col-md-2 col-lg-2 col-xl-2 mb-3">
                 <button type="button" class="btn btn-sm btn-primary btn-block" data-toggle="modal" data-target="#modal-payment">

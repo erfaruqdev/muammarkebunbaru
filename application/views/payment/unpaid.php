@@ -233,7 +233,7 @@
                                 <?= $d->village.', '.$d->city ?>
                             </td>
                             <td class="text-center">
-                                <?= $this->sm->analyticDetail($d->id)[2] ?>
+                                <?= $this->pm->analyticDetail($d->id)[2] ?>
                             </td>
                         </tr>
                 <?php

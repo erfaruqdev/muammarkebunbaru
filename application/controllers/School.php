@@ -55,8 +55,8 @@ class School extends CI_Controller
         //orientasi paper potrait / landscape
         $orientation = "portrait";
         
-		//$html = $this->load->view('school/analytic',$data, true);
-		$html = $this->load->view('school/unpaid',$data, true);
+		$html = $this->load->view('school/analytic',$data, true);
+//		$html = $this->load->view('school/unpaid',$data, true);
 		//$this->load->view('registration/invoice',$data);	    
         
         // run dompdf

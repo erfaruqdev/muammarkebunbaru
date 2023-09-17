@@ -133,4 +133,50 @@ class PaymentModel extends CI_Model
         $generator = new Picqer\Barcode\BarcodeGeneratorHTML();
         return $generator->getBarcode($id, $generator::TYPE_CODE_128, 3, 100);
     }
+
+    public function getAnaliytic()
+    {
+        //$this->db->select('id, name, pjgb, undian')->from('schools')->where('id !=', 1391008521);
+        //return $this->db->order_by('undian', 'ASC')->get()->result_object();
+        return $this->db->query("SELECT * FROM schools WHERE status = 'ACTIVE' AND id NOT IN (SELECT school_id FROM payments WHERE STATUS = 'LUNAS') ORDER BY undian ASC")->result_object();
+    }
+
+    public function analyticDetail($id)
+    {
+        $man = $this->db->get_where('participants', [
+            'school_id' => $id, 'category' => 1
+        ])->num_rows();
+
+        $women = $this->db->get_where('participants', [
+            'school_id' => $id, 'category' => 2
+        ])->num_rows();
+
+        $payment = $this->db->order_by('created_at', 'DESC')->get_where('payments', [
+            'school_id' => $id
+        ])->row_object();
+
+        if ($man > 0) {
+            $manResult = $man . ' Org';
+        } else {
+            $manResult = 'X';
+        }
+
+        if ($women > 0) {
+            $womenResult = $women . ' Org';
+        } else {
+            $womenResult = 'X';
+        }
+
+        if ($payment) {
+            $paymentResult = $payment->status;
+        } else {
+            $paymentResult = 'BELUM BAYAR';
+        }
+
+        return [
+            $manResult,
+            $womenResult,
+            $paymentResult
+        ];
+    }
 }

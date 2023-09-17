@@ -58,4 +58,29 @@ class Payment extends CI_Controller
         ];
         $this->load->view('print/invoice', $data);
     }
+
+    public function unpaid()
+    {
+        // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
+        $this->load->library('pdfgenerator');
+
+        // title dari pdf
+        $data = [
+            'data' => $this->pm->getAnaliytic()
+        ];
+
+        // filename dari pdf ketika didownload
+        $file_pdf = 'peserta-tidak-bayar';
+        // setting paper
+        $paper = 'A4';
+        //orientasi paper potrait / landscape
+        $orientation = "portrait";
+
+//        $html = $this->load->view('school/analytic',$data, true);
+		$html = $this->load->view('payment/unpaid',$data, true);
+        //$this->load->view('registration/invoice',$data);
+
+        // run dompdf
+        $this->pdfgenerator->generate($html, $file_pdf,$paper,$orientation);
+    }
 }

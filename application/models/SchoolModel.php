@@ -80,7 +80,7 @@ class SchoolModel extends CI_Model
     {
         //$this->db->select('id, name, pjgb, undian')->from('schools')->where('id !=', 1391008521);
         //return $this->db->order_by('undian', 'ASC')->get()->result_object();
-        return $this->db->query("SELECT * FROM schools WHERE id != '1391008521' AND status = 'ACTIVE' AND id NOT IN (SELECT school_id FROM payments WHERE STATUS = 'LUNAS') ORDER BY undian ASC")->result_object();
+        return $this->db->query("SELECT * FROM schools WHERE status = 'ACTIVE' AND id NOT IN (SELECT school_id FROM payments WHERE STATUS = 'LUNAS') ORDER BY undian ASC")->result_object();
     }
 
     public function analyticDetail($id)
