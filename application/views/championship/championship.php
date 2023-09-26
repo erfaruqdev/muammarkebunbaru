@@ -122,7 +122,7 @@
                     <option value="2">PUTRI</option>
                 </select>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" style="max-height: 80vh; overflow-y: auto">
                 <div id="show-data-point"></div>
             </div>
             <div class="modal-footer justify-content-between p-2">
