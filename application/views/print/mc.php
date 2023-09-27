@@ -213,6 +213,7 @@
                             <th>MMU</th>
                             <th>ALAMAT</th>
                             <?php } ?>
+                            <th>NILAI</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -230,6 +231,7 @@
                                 <td><?= $d->mmu ?></td>
                                 <td><?= $d->village.', '.$d->city ?></td>
                                 <?php } ?>
+                                <td></td>
                             </tr>
                         <?php
                         }
