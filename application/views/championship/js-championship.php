@@ -11,7 +11,7 @@
     }
 
     const loadData = () => {
-        $('#load-data-champion').html('')
+        $('#show-data-champion').html('')
         $('#loader').show()
         
         let category = $('#changeCategory').val()
