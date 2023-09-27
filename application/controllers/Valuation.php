@@ -64,6 +64,7 @@ class Valuation extends CI_Controller
     public function printResult()
     {
         $data = [
+            'title' => 'Print Daftar Nilai',
             'valuations' => $this->vm->valuation(),
             'contest' => $this->vm->getContestById()
         ];

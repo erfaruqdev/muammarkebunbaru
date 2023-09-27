@@ -28,6 +28,7 @@
             </div>
         </div>
         <hr>
+        <div id="participants"></div>
         <div class="row">
             <?php if ($this->session->userdata('role') == 'MMU') { ?>
                 <div class="col-md-6 col-lg-6 col-xl-6">

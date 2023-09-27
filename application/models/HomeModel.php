@@ -43,4 +43,46 @@ class HomeModel extends CI_Model
             return 0;
         }
     }
+
+    public function school()
+    {
+        $data = $this->db->select('COUNT(DISTINCT school_id) as total')->from('participants')->get()->row_object();
+        if ($data) {
+            return $data->total;
+        }
+
+        return 0;
+    }
+
+    public function participants()
+    {
+        $data = $this->db->select('category, COUNT(id) as total')->from('participants')->group_by('category')->get()->result_object();
+        $male = 0;
+        $female = 0;
+        if ($data) {
+            foreach ($data as $d) {
+                if ($d->category == 1) {
+                    $male += $d->total;
+                }else{
+                    $female += $d->total;
+                }
+            }
+        }
+
+        return [$male, $female, $male + $female];
+    }
+
+    public function contests()
+    {
+        $this->db->select('b.name, COUNT(a.id) as total')->from('participants as a');
+        $this->db->join('contests as b', 'b.id = a.contest_id');
+        return $this->db->group_by('a.contest_id')->order_by('b.id')->get()->result_object();
+    }
+
+    public function contestsByGender($category)
+    {
+        $this->db->select('b.name, COUNT(a.id) as total')->from('participants as a');
+        $this->db->join('contests as b', 'b.id = a.contest_id')->where('a.category', $category);
+        return $this->db->group_by('a.contest_id')->order_by('b.id')->get()->result_object();
+    }
 }

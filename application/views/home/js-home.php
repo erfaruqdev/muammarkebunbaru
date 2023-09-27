@@ -1,6 +1,7 @@
 <script>
     $(function() {
         countDownMuammar()
+        participants()
     })
 
     const countDownMuammar = () => {
@@ -34,6 +35,16 @@
                 document.getElementById("demo").innerHTML = "MUAMMAR SUKSES DILAKSANAKAN";
             }
         }, 1000);
+    }
+
+    const participants = () => {
+        $.ajax({
+            url: '<?= base_url() ?>home/participants',
+            method: 'POST',
+            success: response => {
+                $('#participants').html(response)
+            }
+        })
     }
 
 </script>

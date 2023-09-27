@@ -49,7 +49,7 @@
         }
 
         if (categoryElement.val() === '') {
-            toastr.error('Pilih dulu jkategori')
+            toastr.error('Pilih dulu kategori')
             return false
         }
 

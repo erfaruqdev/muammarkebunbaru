@@ -21,4 +21,17 @@ class Home extends CI_Controller
         ];
         $this->load->view('home/home', $data);
     }
+
+    public function participants()
+    {
+        $data = [
+            'school' => $this->hm->school(),
+            'participants' => $this->hm->participants(),
+            'contests' => $this->hm->contests(),
+            'contestsByMale' => $this->hm->contestsByGender(1),
+            'contestsByFemale' => $this->hm->contestsByGender(2),
+        ];
+
+        $this->load->view('home/ajax-data', $data);
+    }
 }
