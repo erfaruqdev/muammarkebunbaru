@@ -204,8 +204,9 @@
                 <table id="table">
                     <thead>
                         <tr>
-                            <th>URUT</th>
+<!--                            <th>URUT</th>-->
                             <th>UNDI</th>
+                            <th>ID MMU</th>
                             <th>NAMA</th>
                             <?php
                             if($contest == 'CERDAS CERMAT' || $contest == 'RANGKING SATU' || $contest == 'MERANGKAI KALIMAT') {
@@ -222,8 +223,9 @@
                         foreach ($data as $d) {
                         ?>
                             <tr>
-                                <td class="text-center"><?= $no++ ?></td>
+<!--                                <td class="text-center">--><?php //= $no++ ?><!--</td>-->
                                 <td class="text-center"><?= $d->undian ?></td>
+                                <td class="text-center"><?= $d->school_id ?></td>
                                 <td><?= $d->name ?></td>
                                 <?php
                                 if($contest == 'CERDAS CERMAT' || $contest == 'RANGKING SATU' || $contest == 'MERANGKAI KALIMAT') {

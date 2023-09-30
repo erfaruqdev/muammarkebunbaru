@@ -227,10 +227,11 @@
             <tbody>
                 <?php
                 if ($data) {
+                    $no = 1;
                     foreach ($data as $d) {
                 ?>
                         <tr>
-                            <td class="text-center"><?= $d->undian ?></td>
+                            <td class="text-center"><?= $no++ ?></td>
                             <td class="pl-1"><?= $d->name ?></td>
                             <td class="pl-1"><?= $d->pjgb ?></td>
                             <td class="text-center">

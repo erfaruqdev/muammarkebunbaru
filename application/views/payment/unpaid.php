@@ -213,7 +213,7 @@
         <table style="width: 100%" border="1" class="table">
             <thead>
                 <tr>
-                    <th>UNDI</th>
+                    <th>NO</th>
                     <th>MMU</th>
                     <th>PJGB</th>
                     <th>ALAMAT</th>
@@ -223,10 +223,11 @@
             <tbody>
                 <?php
                 if ($data) {
+                    $no = 1;
                     foreach ($data as $d) {
                 ?>
                         <tr>
-                            <td class="text-center"><?= $d->undian ?></td>
+                            <td class="text-center"><?= $no++ ?></td>
                             <td class="pl-1"><?= $d->name ?></td>
                             <td class="pl-1"><?= $d->pjgb ?></td>
                             <td class="text-center">
