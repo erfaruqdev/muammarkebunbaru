@@ -208,7 +208,7 @@
             </tbody>
         </table>
         <div class="border"></div>
-        <h6 class="text-center">DATA PEMBAYARAN REGISTRASI MUAMMAR 1444 KEBUN BARU</h6>
+        <h6 class="text-center">DATA PEMBAYARAN REGISTRASI MUAMMAR 1445 KEBUN BARU</h6>
         <h6 class="text-center mb-1">TANGGAL : <?= datetimeIDFormat(date('Y-m-d H:i:s')) ?></h6>
         <table style="width: 100%" border="1" class="table">
             <thead>
