@@ -81,7 +81,7 @@ function getMasehiExplode()
 
 function setTimeDiff($date)
 {
-    $time = date('2022-10-23 08:00:00');
+    $time = date('2023-10-08 08:00:00');
 
     $selisih = strtotime($time) - strtotime($date);
 
