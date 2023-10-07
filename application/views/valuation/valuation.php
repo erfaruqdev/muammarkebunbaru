@@ -27,6 +27,12 @@
                     <option value="2">PUTRI</option>
                 </select>
             </div>
+            <div class="col-sm-12 col-md-6 col-lg-3 col-xl-2 mb-2">
+                <select id="changeOrder" class="form-control form-control-sm w-100" onchange="loadData()">
+                    <option value="c.undian">Urut Undi</option>
+                    <option value="a.rank">Urut Rank</option>
+                </select>
+            </div>
             <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3 mb-2">
                 <form target="_blank" action="<?= base_url() ?>valuation/printResult" id="form-print" method="post">
                     <input type="hidden" name="contest" id="contest" value="">
@@ -35,9 +41,6 @@
                         <i class="fas fa-print"></i> Print Per Lomba
                     </button>
                 </form>
-            </div>
-            <div class="col-sm-12 col-md-6 col-lg-3 col-xl-2 mb-2">
-
             </div>
             <div class="col-sm-12 col-md-6 col-lg-3 col-xl-2 mb-2">
                 <a href="<?= base_url() ?>valuation/create" class="btn btn-primary btn-sm btn-block">

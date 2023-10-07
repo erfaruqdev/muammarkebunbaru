@@ -7,8 +7,14 @@ class ValuationModel extends CI_Model
     {
         $contest = $this->input->post('contest', true);
         $category = $this->input->post('category', true);
+        $order = $this->input->post('order', true);
+
         if ($contest && $category) {
-            return $this->edit($contest, $category);
+            $this->db->select('a.*, b.name, c.name as mmu, c.undian')->from('valuations as a');
+            $this->db->join('participants as b', 'b.school_id = a.school_id');
+            $this->db->join('schools as c', 'c.id = a.school_id');
+            $this->db->where(['a.contest_id' => $contest, 'a.category' => $category]);
+            return $this->db->order_by($order, 'ASC')->group_by('a.school_id')->get()->result_object();
         }
 
         return '';
@@ -40,16 +46,14 @@ class ValuationModel extends CI_Model
         $this->db->join('participants as b', 'b.school_id = a.school_id');
         $this->db->join('schools as c', 'c.id = a.school_id');
         $this->db->where(['a.contest_id' => $contest, 'a.category' => $category]);
-        return $this->db->order_by('a.point', 'desc')->group_by('a.school_id')->get()->result_object();
+        return $this->db->order_by('c.undian', 'ASC')->group_by('a.school_id')->get()->result_object();
     }
 
     public function checkPoint($contest, $category)
     {
-        $result = $this->db->select('*')->from('valuations')->where([
+        return $this->db->get_where('valuations', [
             'contest_id' => $contest, 'category' => $category
-        ])->order_by('nilai', 'desc')->get()->result_object();
-
-        return $result;
+        ])->row_object();
     }
 
     public function save()
@@ -77,15 +81,22 @@ class ValuationModel extends CI_Model
         $points = [1 => 100, 95, 90, 87, 84, 81, 78, 75, 72, 69, 66, 63, 60, 57, 54, 51, 48, 45, 42, 39, 36, 33, 30];
 
         if ($result) {
-            $no = 1;
+            $no = 0;
+            $lastNilai = 0;
             foreach ($result as $i) {
+                if ($i->nilai != $lastNilai) {
+                    $no++;
+                }
                 if ($no >= 1 && $no <= 23) {
                     $point = $points[$no];
                 }else{
                     $point = 30;
                 }
-                $no++;
-                $this->db->where('id', $i->id)->update('valuations', ['point' => $point]);
+                $lastNilai = $i->nilai;
+
+                $this->db->where('id', $i->id)->update('valuations', [
+                    'point' => $point, 'rank' => $no
+                ]);
             }
         }
     }
@@ -93,18 +104,15 @@ class ValuationModel extends CI_Model
     public function update()
     {
         $nilai = $this->input->post('nilai', true);
-        $point = $this->input->post('point', true);
         foreach ($nilai as $key => $value) {
             $this->db->where('id', $key)->update('valuations', [
                 'nilai' => $value
             ]);
         }
 
-        foreach ($point as $key => $value) {
-            $this->db->where('id', $key)->update('valuations', [
-                'point' => $value
-            ]);
-        }
+        $contest = $this->input->post('contest', true);
+        $category = $this->input->post('category', true);
+        $this->setPoint($contest, $category);
     }
 
     public function getContestById()

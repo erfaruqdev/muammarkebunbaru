@@ -84,9 +84,9 @@
                                             <input name="nilai[<?= $participant->id ?>]" type="number" class="form-control form-control-sm num" value="<?= $participant->nilai ?>">
                                         </td>
                                         <td class="align-middle">
-                                            <input name="point[<?= $participant->id ?>]" type="number" class="form-control form-control-sm point" value="<?= $participant->point ?>">
+                                            <input disabled name="point[<?= $participant->id ?>]" type="number" class="form-control form-control-sm point" value="<?= $participant->point ?>">
                                         </td>
-                                        <td class="align-middle"><?= $no++ ?></td>
+                                        <td class="align-middle"><?= $participant->rank ?></td>
                                     </tr>
                                 <?php
                                     }

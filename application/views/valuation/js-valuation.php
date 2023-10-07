@@ -14,6 +14,7 @@
 
     let contestElement = $('#changeContest')
     let categoryElement = $('#changeCategory')
+    let orderElement = $('#changeOrder')
 
     const loadData = () => {
         $('#loader').show()
@@ -23,7 +24,8 @@
             method: 'POST',
             data: {
                 category: categoryElement.val(),
-                contest: contestElement.val()
+                contest: contestElement.val(),
+                order: orderElement.val()
             },
             success: function(res) {
                 $('#load-data').html(res)

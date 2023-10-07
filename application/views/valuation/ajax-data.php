@@ -34,7 +34,7 @@
                                     <?= $d->point ?>
                                 </td>
                                 <td class="align-middle text-center">
-                                    <?= $no++ ?>
+                                    <?= $d->rank ?>
                                 </td>
                             </tr>
                     <?php
