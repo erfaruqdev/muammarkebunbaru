@@ -70,20 +70,4 @@ class Valuation extends CI_Controller
         ];
         $this->load->view('print/print-point', $data);
     }
-
-    public function coba()
-    {
-        $data = $this->db->select('id, nilai')->from('valuations')->order_by('nilai', 'DESC')->get()->result();
-
-        $no = 0;
-        $last = 0;
-        foreach ($data as $d) {
-            if ($d->nilai != $last) {
-                $no++;
-            }
-            $last = $d->nilai;
-
-            $this->db->where('id', $d->id)->update('valuations', ['rank' => $no]);
-        }
-    }
 }

@@ -62,12 +62,14 @@ class ValuationModel extends CI_Model
         $category = $this->input->post('category', true);
         $nilai = $this->input->post('nilai', true);
         foreach ($nilai as $key => $value) {
-            $this->db->insert('valuations', [
-                'school_id' => $key,
-                'contest_id' => $contest,
-                'category' => $category,
-                'nilai' => $value
-            ]);
+            if ($value > 0) {
+                $this->db->insert('valuations', [
+                    'school_id' => $key,
+                    'contest_id' => $contest,
+                    'category' => $category,
+                    'nilai' => $value
+                ]);
+            }
         }
 
         $this->setPoint($contest, $category);
@@ -105,9 +107,13 @@ class ValuationModel extends CI_Model
     {
         $nilai = $this->input->post('nilai', true);
         foreach ($nilai as $key => $value) {
-            $this->db->where('id', $key)->update('valuations', [
-                'nilai' => $value
-            ]);
+            if ($value > 0) {
+                $this->db->where('id', $key)->update('valuations', [
+                    'nilai' => $value
+                ]);
+            }else{
+                $this->db->where('id', $key)->delete('valuations');
+            }
         }
 
         $contest = $this->input->post('contest', true);
