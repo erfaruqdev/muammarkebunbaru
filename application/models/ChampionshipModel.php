@@ -81,6 +81,11 @@ class ChampionshipModel extends CI_Model
             'school_id' => $id, 'contest_id' => $contest, 'category' => $type
         ])->num_rows();
 
+        //CHECK PAYMENT
+        $checkPayment = $this->db->get_where('payments', [
+            'school_id' => $id, 'status' => 'LUNAS'
+        ])->num_rows();
+
         if (!$checkMMU) {
             return [
                 400,
@@ -101,6 +106,14 @@ class ChampionshipModel extends CI_Model
             return [
                 400,
                 'Kejuarawaan MMU ini untuk lomba terpilih sudah ada',
+                NULL
+            ];
+        }
+
+        if ($checkPayment <= 0) {
+            return [
+                400,
+                'MMU ini belum melunasi pembayaran',
                 NULL
             ];
         }
@@ -164,6 +177,16 @@ class ChampionshipModel extends CI_Model
             return [
                 400,
                 'Sebagian MMU dalam lomba yang sama sudah ada'
+            ];
+        }
+
+        $checkPayment = $this->db->get_where('payments', [
+            'school_id' => $id, 'status' => 'LUNAS'
+        ])->num_rows();
+        if ($checkPayment <= 0) {
+            return [
+                400,
+                'Sebagian MMU tidak melunasi pembayaran'
             ];
         }
 
