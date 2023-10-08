@@ -14,7 +14,7 @@ class ValuationModel extends CI_Model
         if ($contest && $category) {
             $this->db->select('a.*, c.name as mmu, c.undian')->from('participants as a');
             $this->db->join('schools as c', 'c.id = a.school_id');
-            $this->db->where(['a.contest_id' => $contest, 'a.category' => $category]);
+            $this->db->where(['a.contest_id' => $contest, 'a.category' => $category, 'a.rank !=' => 0]);
             $result =  $this->db->order_by($order, 'ASC')->group_by('a.school_id')->get()->result_object();
             if ($result) {
                 foreach ($result as $d) {
