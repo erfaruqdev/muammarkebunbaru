@@ -85,6 +85,7 @@ class ValuationModel extends CI_Model
                     $data[] = [
                         'undi' => $d->undian,
                         'name' => $d->name,
+                        'school_id' => $d->school_id,
                         'mmu' => $d->mmu,
                         'nilai' => $valuation[0],
                         'point' => $valuation[1],
