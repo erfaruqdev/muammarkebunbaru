@@ -76,7 +76,7 @@ class ValuationModel extends CI_Model
         $data = [];
 
         if ($contest && $category) {
-            $this->db->select('a.*, c.name as mmu, c.undian')->from('participants as a');
+            $this->db->select('a.*, c.name as mmu, c.undian, c.address, c.village, c.district, c.city')->from('participants as a');
             $this->db->join('schools as c', 'c.id = a.school_id');
             $this->db->where(['a.contest_id' => $contest, 'a.category' => $category]);
             $result = $this->db->order_by('c.undian', 'ASC')->group_by('a.school_id')->get()->result_object();
@@ -87,6 +87,7 @@ class ValuationModel extends CI_Model
                     $data[] = [
                         'undi' => $d->undian,
                         'name' => $d->name,
+                        'address' => $d->address.', '.$d->village.' '.$d->district.' '.$d->city,
                         'school_id' => $d->school_id,
                         'mmu' => $d->mmu,
                         'nilai' => $valuation[0],
