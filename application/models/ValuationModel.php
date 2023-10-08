@@ -53,8 +53,8 @@ class ValuationModel extends CI_Model
         if ($data) {
             return [
                 $data->nilai,
-                $data->rank,
                 $data->point,
+                $data->rank
             ];
         }else{
             return [
