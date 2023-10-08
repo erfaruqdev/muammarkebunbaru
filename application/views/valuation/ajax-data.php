@@ -20,7 +20,7 @@
                         foreach ($valuation as $d) {
                     ?>
                             <tr>
-                                <td class="align-middle"><?= $d['undian'] ?></td>
+                                <td class="align-middle"><?= $d['undi'] ?></td>
                                 <td class="align-middle">
                                     <?= $d['name'] ?>
                                 </td>

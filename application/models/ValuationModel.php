@@ -15,9 +15,9 @@ class ValuationModel extends CI_Model
             $this->db->select('a.*, c.name as mmu, c.undian')->from('participants as a');
             $this->db->join('schools as c', 'c.id = a.school_id');
             $this->db->where(['a.contest_id' => $contest, 'a.category' => $category]);
-            $data =  $this->db->order_by($order, 'ASC')->group_by('a.school_id')->get()->result_object();
-            if ($data) {
-                foreach ($data as $d) {
+            $result =  $this->db->order_by($order, 'ASC')->group_by('a.school_id')->get()->result_object();
+            if ($result) {
+                foreach ($result as $d) {
                     $valuation = $this->getValuation($d->mmu, $contest, $category);
                     $data[] = [
                         'undi' => $d->undian,

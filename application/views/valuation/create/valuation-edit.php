@@ -77,7 +77,7 @@
                                     foreach ($participants as $participant) {
                                 ?>
                                     <tr>
-                                        <td class="align-middle"><?= $participant['undian'] ?></td>
+                                        <td class="align-middle"><?= $participant['undi'] ?></td>
                                         <td class="align-middle"><?= $participant['name'].$dkk ?></td>
                                         <td class="align-middle"><?= $participant['mmu'] ?></td>
                                         <td class="align-middle">
