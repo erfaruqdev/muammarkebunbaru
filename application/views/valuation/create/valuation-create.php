@@ -79,7 +79,10 @@
                                         <td class="align-middle"><?= $no++ ?></td>
                                         <td class="align-middle"><?= $participant['undi'] ?></td>
                                         <td class="align-middle"><?= $participant['name'].''.$dkk ?></td>
-                                        <td class="align-middle"><?= $participant['mmu'] ?></td>
+                                        <td class="align-middle">
+                                            <?= $participant['mmu'] ?> <br>
+                                            <?= $participant['address'] ?>
+                                        </td>
                                         <td class="align-middle">
                                             <input name="nilai[<?= $participant['school_id'] ?>]" type="number" class="form-control form-control-sm num" value="<?= $participant['nilai'] ?>">
                                         </td>
