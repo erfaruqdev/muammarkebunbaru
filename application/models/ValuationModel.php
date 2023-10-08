@@ -13,7 +13,7 @@ class ValuationModel extends CI_Model
             $this->db->select('a.*, b.name, c.name as mmu, c.undian')->from('valuations as a');
             $this->db->join('participants as b', 'b.school_id = a.school_id');
             $this->db->join('schools as c', 'c.id = a.school_id');
-            $this->db->where(['a.contest_id' => $contest, 'a.category' => $category]);
+            $this->db->where(['b.contest_id' => $contest, 'a.category' => $category]);
             return $this->db->order_by($order, 'ASC')->group_by('a.school_id')->get()->result_object();
         }
 
@@ -45,7 +45,7 @@ class ValuationModel extends CI_Model
         $this->db->select('a.*, b.name, c.name as mmu, c.undian')->from('valuations as a');
         $this->db->join('participants as b', 'b.school_id = a.school_id');
         $this->db->join('schools as c', 'c.id = a.school_id');
-        $this->db->where(['a.contest_id' => $contest, 'a.category' => $category]);
+        $this->db->where(['b.contest_id' => $contest, 'a.category' => $category]);
         return $this->db->order_by('c.undian', 'ASC')->group_by('a.school_id')->get()->result_object();
     }
 
