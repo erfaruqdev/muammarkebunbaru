@@ -77,11 +77,11 @@
                                 ?>
                                     <tr>
                                         <td class="align-middle"><?= $no++ ?></td>
-                                        <td class="align-middle"><?= $participant->undian ?></td>
-                                        <td class="align-middle"><?= $participant->name.$dkk ?></td>
-                                        <td class="align-middle"><?= $participant->mmu ?></td>
+                                        <td class="align-middle"><?= $participant['undian'] ?></td>
+                                        <td class="align-middle"><?= $participant['name'].$dkk ?></td>
+                                        <td class="align-middle"><?= $participant['mmu'] ?></td>
                                         <td class="align-middle">
-                                            <input name="nilai[<?= $participant->id_mmu ?>]" type="number" class="form-control form-control-sm num" value="0">
+                                            <input name="nilai[<?= $participant->id_mmu ?>]" type="number" class="form-control form-control-sm num" value="<?= $participant['nilai'] ?>">
                                         </td>
                                     </tr>
                                 <?php

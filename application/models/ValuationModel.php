@@ -9,15 +9,59 @@ class ValuationModel extends CI_Model
         $category = $this->input->post('category', true);
         $order = $this->input->post('order', true);
 
+        $data = [];
+
         if ($contest && $category) {
-            $this->db->select('a.*, b.name, c.name as mmu, c.undian')->from('valuations as a');
-            $this->db->join('participants as b', 'b.school_id = a.school_id');
+            $this->db->select('a.*, c.name as mmu, c.undian')->from('participants as a');
             $this->db->join('schools as c', 'c.id = a.school_id');
-            $this->db->where(['b.contest_id' => $contest, 'a.category' => $category]);
-            return $this->db->order_by($order, 'ASC')->group_by('a.school_id')->get()->result_object();
+            $this->db->where(['a.contest_id' => $contest, 'a.category' => $category]);
+            $data =  $this->db->order_by($order, 'ASC')->group_by('a.school_id')->get()->result_object();
+            if ($data) {
+                foreach ($data as $d) {
+                    $valuation = $this->getValuation($d->mmu, $contest, $category);
+                    $data[] = [
+                        'undi' => $d->undian,
+                        'name' => $d->name,
+                        'mmu' => $d->mmu,
+                        'nilai' => $valuation[0],
+                        'point' => $valuation[1],
+                        'rank' => $valuation[2]
+                    ];
+                }
+            }
+
+            return $data;
         }
 
+//        if ($contest && $category) {
+//            $this->db->select('a.*, b.name, c.name as mmu, c.undian')->from('valuations as a');
+//            $this->db->join('participants as b', 'b.school_id = a.school_id');
+//            $this->db->join('schools as c', 'c.id = a.school_id');
+//            $this->db->where(['b.contest_id' => $contest, 'a.category' => $category]);
+//            return $this->db->order_by($order, 'ASC')->group_by('a.school_id')->get()->result_object();
+//        }
+
         return '';
+    }
+
+    public function getValuation($mmu, $contest, $category)
+    {
+        $data = $this->db->get_where('valuations', [
+            'school_id' => $mmu, 'contest_id' => $contest, 'category' => $category
+        ])->row_object();
+        if ($data) {
+            return [
+                $data->nilai,
+                $data->rank,
+                $data->point,
+            ];
+        }else{
+            return [
+                0,
+                0,
+                0
+            ];
+        }
     }
     public function contest()
     {
@@ -26,27 +70,29 @@ class ValuationModel extends CI_Model
 
     public function participants($contest, $category)
     {
-        if ($contest && $category) {
-            $check = $this->checkPoint($contest, $category);
-            if ($check) {
-                return $this->edit($contest, $category);
-            }
+        $data = [];
 
-            $this->db->select('a.*, b.name as mmu, b.id as id_mmu, b.undian')->from('participants as a')->join('schools as b', 'b.id = a.school_id');
+        if ($contest && $category) {
+            $this->db->select('a.*, c.name as mmu, c.undian')->from('participants as a');
+            $this->db->join('schools as c', 'c.id = a.school_id');
             $this->db->where(['a.contest_id' => $contest, 'a.category' => $category]);
-            return $this->db->order_by('b.undian', 'ASC')->group_by('a.school_id')->get()->result_object();
+            $result = $this->db->order_by('c.undian', 'ASC')->group_by('a.school_id')->get()->result_object();
+            if ($result) {
+                foreach ($result as $d) {
+                    $valuation = $this->getValuation($d->mmu, $contest, $category);
+                    $data[] = [
+                        'undi' => $d->undian,
+                        'name' => $d->name,
+                        'mmu' => $d->mmu,
+                        'nilai' => $valuation[0],
+                        'point' => $valuation[1],
+                        'rank' => $valuation[2]
+                    ];
+                }
+            }
         }
 
-        return '';
-    }
-
-    public function edit($contest, $category)
-    {
-        $this->db->select('a.*, b.name, c.name as mmu, c.undian')->from('valuations as a');
-        $this->db->join('participants as b', 'b.school_id = a.school_id');
-        $this->db->join('schools as c', 'c.id = a.school_id');
-        $this->db->where(['b.contest_id' => $contest, 'a.category' => $category]);
-        return $this->db->order_by('c.undian', 'ASC')->group_by('a.school_id')->get()->result_object();
+        return $data;
     }
 
     public function checkPoint($contest, $category)
@@ -105,19 +151,23 @@ class ValuationModel extends CI_Model
 
     public function update()
     {
+        $contest = $this->input->post('contest', true);
+        $category = $this->input->post('category', true);
         $nilai = $this->input->post('nilai', true);
         foreach ($nilai as $key => $value) {
             if ($value > 0) {
-                $this->db->where('id', $key)->update('valuations', [
+                $this->db->where([
+                    'school_id' => $key, 'contest_id' => $contest, 'category' => $category
+                ])->update('valuations', [
                     'nilai' => $value
                 ]);
             }else{
-                $this->db->where('id', $key)->delete('valuations');
+                $this->db->where([
+                    'school_id' => $key, 'contest_id' => $contest, 'category' => $category
+                ])->delete('valuations');
             }
         }
 
-        $contest = $this->input->post('contest', true);
-        $category = $this->input->post('category', true);
         $this->setPoint($contest, $category);
     }
 

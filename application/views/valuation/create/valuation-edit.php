@@ -77,16 +77,16 @@
                                     foreach ($participants as $participant) {
                                 ?>
                                     <tr>
-                                        <td class="align-middle"><?= $participant->undian ?></td>
-                                        <td class="align-middle"><?= $participant->name.$dkk ?></td>
-                                        <td class="align-middle"><?= $participant->mmu ?></td>
+                                        <td class="align-middle"><?= $participant['undian'] ?></td>
+                                        <td class="align-middle"><?= $participant['name'].$dkk ?></td>
+                                        <td class="align-middle"><?= $participant['mmu'] ?></td>
                                         <td class="align-middle">
-                                            <input name="nilai[<?= $participant->id ?>]" type="number" class="form-control form-control-sm num" value="<?= $participant->nilai ?>">
+                                            <input name="nilai[<?= $participant['mmu'] ?>]" type="number" class="form-control form-control-sm num" value="<?= $participant['nilai'] ?>">
                                         </td>
                                         <td class="align-middle">
-                                            <input disabled name="point[<?= $participant->id ?>]" type="number" class="form-control form-control-sm point" value="<?= $participant->point ?>">
+                                            <input disabled name="point[<?= $participant['mmu'] ?>]" type="number" class="form-control form-control-sm point" value="<?= $participant['point'] ?>">
                                         </td>
-                                        <td class="align-middle"><?= $participant->rank ?></td>
+                                        <td class="align-middle"><?= $participant['rank'] ?></td>
                                     </tr>
                                 <?php
                                     }

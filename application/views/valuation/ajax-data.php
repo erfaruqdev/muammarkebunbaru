@@ -20,21 +20,21 @@
                         foreach ($valuation as $d) {
                     ?>
                             <tr>
-                                <td class="align-middle"><?= $d->undian ?></td>
+                                <td class="align-middle"><?= $d['undian'] ?></td>
                                 <td class="align-middle">
-                                    <?= $d->name ?>
+                                    <?= $d['name'] ?>
                                 </td>
                                 <td class="align-middle">
-                                    <?= $d->mmu ?>
+                                    <?= $d['mmu'] ?>
                                 </td>
                                 <td class="align-middle text-center">
-                                    <?= $d->nilai ?>
+                                    <?= $d['nilai'] ?>
                                 </td>
                                 <td class="align-middle text-center">
-                                    <?= $d->point ?>
+                                    <?= $d['point'] ?>
                                 </td>
                                 <td class="align-middle text-center">
-                                    <?= $d->rank ?>
+                                    <?= $d['rank'] ?>
                                 </td>
                             </tr>
                     <?php
