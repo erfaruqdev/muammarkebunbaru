@@ -15,6 +15,16 @@
                 </thead>
                 <tbody>
                     <?php
+                    if ($contest) {
+                        if ($contest == 1 || $contest == 6 || $contest == 9) {
+                            $dkk = ', DKK';
+                        }else{
+                            $dkk = '';
+                        }
+                    }else{
+                        $dkk = '';
+                    }
+
                     if ($valuation) {
                         $no = 1;
                         foreach ($valuation as $d) {
@@ -22,7 +32,7 @@
                             <tr>
                                 <td class="align-middle"><?= $d['undi'] ?></td>
                                 <td class="align-middle">
-                                    <?= $d['name'] ?>
+                                    <?= $d['name'].''.$dkk ?>
                                 </td>
                                 <td class="align-middle">
                                     <?= $d['mmu'] ?>

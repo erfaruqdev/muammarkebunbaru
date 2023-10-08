@@ -23,7 +23,8 @@ class Valuation extends CI_Controller
     public function valuation()
     {
         $data = [
-            'valuation' => $this->vm->valuation()
+            'valuation' => $this->vm->valuation(),
+            'contest' => $this->input->post('contest', true)
         ];
         $this->load->view('valuation/ajax-data', $data);
     }

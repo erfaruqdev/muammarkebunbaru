@@ -67,7 +67,7 @@
                                 <?php
                                 if ($contest) {
                                     if ($contest == 1 || $contest == 6 || $contest == 9) {
-                                        $dkk = ', DKK';
+                                        $dkk = 'DKK';
                                     }else{
                                         $dkk = '';
                                     }
@@ -78,7 +78,7 @@
                                 ?>
                                     <tr>
                                         <td class="align-middle"><?= $participant['undi'] ?></td>
-                                        <td class="align-middle"><?= $participant['name'].$dkk ?></td>
+                                        <td class="align-middle"><?= $participant['name'].''.$dkk ?></td>
                                         <td class="align-middle"><?= $participant['mmu'] ?></td>
                                         <td class="align-middle">
                                             <input name="nilai[<?= $participant['mmu'] ?>]" type="number" class="form-control form-control-sm num" value="<?= $participant['nilai'] ?>">
