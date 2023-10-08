@@ -71,4 +71,16 @@ class Valuation extends CI_Controller
         ];
         $this->load->view('print/print-point', $data);
     }
+
+    public function coba()
+    {
+        $result = $this->db->get('valuations')->result_object();
+        if ($result) {
+            foreach ($result as $i) {
+                $this->db->where([
+                    'school_id' => $i->school_id, 'contest_id' => $i->contest_id, 'category' => $i->category
+                ])->update('participants', ['rank' => $i->rank]);
+            }
+        }
+    }
 }

@@ -148,6 +148,10 @@ class ValuationModel extends CI_Model
                 $this->db->where('id', $i->id)->update('valuations', [
                     'point' => $point, 'rank' => $no
                 ]);
+
+                $this->db->where([
+                    'school_id' => $i->school_id, 'contest_id' => $i->contest_id, 'category' => $i->category
+                ])->update('participants', ['rank' => $no]);
             }
         }
     }
