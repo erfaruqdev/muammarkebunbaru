@@ -18,7 +18,8 @@ class ValuationModel extends CI_Model
             $result =  $this->db->order_by($order, 'ASC')->group_by('a.school_id')->get()->result_object();
             if ($result) {
                 foreach ($result as $d) {
-                    $valuation = $this->getValuation($d->mmu, $contest, $category);
+                    $id = $d->school_id;
+                    $valuation = $this->getValuation($id, $contest, $category);
                     $data[] = [
                         'undi' => $d->undian,
                         'name' => $d->name,
@@ -79,7 +80,8 @@ class ValuationModel extends CI_Model
             $result = $this->db->order_by('c.undian', 'ASC')->group_by('a.school_id')->get()->result_object();
             if ($result) {
                 foreach ($result as $d) {
-                    $valuation = $this->getValuation($d->mmu, $contest, $category);
+                    $id = $d->school_id;
+                    $valuation = $this->getValuation($id, $contest, $category);
                     $data[] = [
                         'undi' => $d->undian,
                         'name' => $d->name,
