@@ -81,7 +81,7 @@
                                         <td class="align-middle"><?= $participant['name'].''.$dkk ?></td>
                                         <td class="align-middle"><?= $participant['mmu'] ?></td>
                                         <td class="align-middle">
-                                            <input name="nilai[<?= $participant['mmu'] ?>]" type="number" class="form-control form-control-sm num" value="<?= $participant['nilai'] ?>">
+                                            <input name="nilai[<?= $participant['school_id'] ?>]" type="number" class="form-control form-control-sm num" value="<?= $participant['nilai'] ?>">
                                         </td>
                                         <td class="align-middle">
                                             <input disabled name="point[<?= $participant['mmu'] ?>]" type="number" class="form-control form-control-sm point" value="<?= $participant['point'] ?>">
