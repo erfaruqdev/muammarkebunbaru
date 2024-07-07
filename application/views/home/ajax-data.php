@@ -5,7 +5,7 @@
             <div class="info-box-content">
                 <span class="info-box-text">Partisipasi</span>
                 <span class="info-box-number">
-                    <?= $school ?> <span class="font-weight-normal">dari <b>74</b> Lembaga</span>
+                    <?= $school ?> <span class="font-weight-normal">dari <b>80</b> Lembaga</span>
                 </span>
             </div>
             <!-- /.info-box-content -->
