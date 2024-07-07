@@ -6,7 +6,7 @@
 
     const countDownMuammar = () => {
         // Mengatur waktu akhir perhitungan mundur
-        var countDownDate = new Date("October 08, 2023 07:30:00").getTime();
+        var countDownDate = new Date("September 29, 2024 07:30:00").getTime();
 
         // Memperbarui hitungan mundur setiap 1 detik
         var x = setInterval(function() {
