@@ -26,11 +26,11 @@ class ContestantModel extends CI_Model
             'category' => $category
         ])->num_rows();
 
-        if ($contest == 1 && $check == 3 || $contest == 6 && $check == 3) {
+        if ($contest == 1 && $check == 3 || $contest == 6 && $check == 3 || $contest == 9 && $check == 3) {
             return 1;
         }
 
-        if ($contest != 1 && $contest != 6 && $check == 1) {
+        if ($contest != 1 && $contest != 6 && $contest != 9 && $check == 1) {
             return 1;
         }
 
@@ -59,15 +59,12 @@ class ContestantModel extends CI_Model
         }
 
         $rows = 0;
-
+        $arrays = [
+            1 => 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 6, 6, 1, 1, 9, 9
+        ];
         foreach ($name as $key => $value) {
-            if ($key == 9 || $key == 10) {
-                $k = 1;
-            } elseif ($key == 11 || $key == 12) {
-                $k = 6;
-            } else {
-                $k = $key;
-            }
+            $k = $arrays[$key];
+
             if ($this->checkContest($mmu, $k, $category) <= 0 && $value != '') {
                 $this->db->insert('participants', [
                     'school_id' => $mmu,
@@ -103,12 +100,12 @@ class ContestantModel extends CI_Model
         $name = $this->input->post('name_edit', true);
         $address = $this->input->post('address_edit', true);
 
-        // if ($this->setting() > 0) {
-        //     return [
-        //         'status' => 400,
-        //         'message' => 'Fitur tambah dan edit sudah diblokir'
-        //     ];
-        // }
+         if ($this->setting() > 0) {
+             return [
+                 'status' => 400,
+                 'message' => 'Fitur tambah dan edit sudah diblokir'
+             ];
+         }
 
         $check = $this->db->get_where('participants', [
             'id' => $id, 'school_id' => $mmu

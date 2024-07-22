@@ -100,24 +100,30 @@
                             <div class="form-group">
                                 <label for="name-edit">Lomba Praktik Shalat</label>
                                 <input type="text" name="name[6]" class="form-control mb-3 text-uppercase" tabindex="8">
-                                <input type="text" name="name[10]" class="form-control mb-3 text-uppercase" tabindex="9">
-                                <input type="text" name="name[11]" class="form-control text-uppercase" tabindex="10">
+                                <input type="text" name="name[11]" class="form-control mb-3 text-uppercase" tabindex="9">
+                                <input type="text" name="name[12]" class="form-control text-uppercase" tabindex="10">
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-6 col-lg-3 col-xl-6">
                             <div class="form-group">
                                 <label for="name-edit">Lomba Cerdas Cermat</label>
                                 <input type="text" name="name[1]" class="form-control mb-3 text-uppercase" tabindex="11">
-                                <input type="text" name="name[12]" class="form-control mb-3 text-uppercase" tabindex="12">
-                                <input type="text" name="name[13]" class="form-control text-uppercase" tabindex="13">
+                                <input type="text" name="name[13]" class="form-control mb-3 text-uppercase" tabindex="12">
+                                <input type="text" name="name[14]" class="form-control text-uppercase" tabindex="13">
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-6 col-lg-3 col-xl-6">
                             <div class="form-group">
-                                <label for="name-edit">Lomba Shalawat Nabi</label>
+                                <label for="name">Lomba Shalawat Nabi</label>
                                 <input type="text" name="name[9]" class="form-control mb-3 text-uppercase" tabindex="14">
-                                <input type="text" name="name[14]" class="form-control mb-3 text-uppercase" tabindex="15">
-                                <input type="text" name="name[15]" class="form-control text-uppercase" tabindex="16">
+                                <input type="text" name="name[15]" class="form-control mb-3 text-uppercase" tabindex="15">
+                                <input type="text" name="name[16]" class="form-control text-uppercase" tabindex="16">
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-3 col-xl-6">
+                            <div class="form-group">
+                                <label for="name">Lomba Tahsin Bil Hifdzi</label>
+                                <input type="text" name="name[10]" class="form-control mb-3 text-uppercase" tabindex="17">
                             </div>
                         </div>
                     </div>

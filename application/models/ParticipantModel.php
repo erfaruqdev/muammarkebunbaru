@@ -54,17 +54,12 @@ class ParticipantModel extends CI_Model
         }
 
         $rows = 0;
+        $arrays = [
+            1 => 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 6, 6, 1, 1, 9, 9
+        ];
 
         foreach ($name as $key => $value) {
-            if ($key == 10 || $key == 11) {
-                $k = 6;
-            } elseif ($key == 12 || $key == 13) {
-                $k = 1;
-            } elseif ($key == 14 || $key == 15) {
-                $k = 9;
-            } else {
-                $k = $key;
-            }
+            $k = $arrays[$key];
             if ($this->checkContest($mmu, $k, $category) <= 0 && $value != '') {
                 $this->db->insert('participants', [
                     'school_id' => $mmu,
