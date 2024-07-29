@@ -40,7 +40,7 @@
                                     </small>
                                 </td>
                                 <td class="align-middle">
-                                    <?= $data->method ?> <br>
+                                    <?= ($data->method == 'OFFLINE') ? 'TUNAI' : 'TRANSFER' ?> <br>
                                     <small class="badge badge-<?= ($data->status == 'LUNAS') ? 'success' : 'danger' ?>"><?= strtolower($data->status) ?></small>
                                 </td>
                                 <td class="align-middle">

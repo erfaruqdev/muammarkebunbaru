@@ -15,8 +15,8 @@
             <div class="col-md-2 col-lg-2 col-xl-2 mb-2">
                 <select id="changeMethod" onchange="loadData()" class="form-control form-control-sm w-100">
                     <option value="">..:Metode:..</option>
-                    <option value="OFFLINE">OFFLINE</option>
-                    <option value="ONLINE">ONLINE</option>
+                    <option value="OFFLINE">TUNAI</option>
+                    <option value="ONLINE">TRANSFER</option>
                 </select>
             </div>
             <div class="col-md-2 col-lg-2 col-xl-2 mb-2">
@@ -55,8 +55,8 @@
                     <div class="col-12 col-md-6 col-lg-4 col-xl-4">
                         <select id="method" onchange="changeMethod(this)" class="form-control w-100">
                             <option value="">..:Metode:..</option>
-                            <option value="OFFLINE">OFFLINE</option>
-                            <option value="ONLINE">ONLINE</option>
+                            <option value="OFFLINE">TUNAI</option>
+                            <option value="ONLINE">TRANSFER</option>
                         </select>
                     </div>
                     <div class="col-12 col-md-6 col-lg-8 col-xl-8">

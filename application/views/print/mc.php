@@ -213,6 +213,8 @@
                             ?>
                             <th>MMU</th>
                             <th>ALAMAT</th>
+                            <?php }else{ ?>
+                                <th>MMU</th>
                             <?php } ?>
                             <th>NILAI</th>
                         </tr>
@@ -232,6 +234,8 @@
                                 ?>
                                 <td><?= $d->mmu ?></td>
                                 <td><?= $d->village.', '.$d->city ?></td>
+                                <?php }else{ ?>
+                                    <td><?= $d->mmu ?></td>
                                 <?php } ?>
                                 <td></td>
                             </tr>

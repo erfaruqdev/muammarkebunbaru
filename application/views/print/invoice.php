@@ -215,7 +215,7 @@
                         </tr>
                         <tr>
                             <td>Metode</td>
-                            <td><?= $data->method ?></td>
+                            <td><?= ($data->method == 'OFFLINE') ? 'TUNAI' : 'TRANSFER' ?></td>
                         </tr>
                         <tr>
                             <td>Tanggal</td>
@@ -318,7 +318,7 @@
                         </tr>
                         <tr>
                             <td>Metode</td>
-                            <td><?= $data->method ?></td>
+                            <td><?= ($data->method == 'OFFLINE') ? 'TUNAI' : 'TRANSFER' ?></td>
                         </tr>
                         <tr>
                             <td>Tanggal</td>

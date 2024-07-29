@@ -77,7 +77,7 @@ class ParticipantModel extends CI_Model
 
         if ($rows <= 0) {
             return [
-                'status' => 200,
+                'status' => 400,
                 'message' => $rows
             ];
         }
