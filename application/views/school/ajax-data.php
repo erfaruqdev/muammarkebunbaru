@@ -11,6 +11,7 @@
                         <th>PJGB</th>
                         <th>GB</th>
                         <th>NO. HP</th>
+                        <th>OPSI</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -44,6 +45,11 @@
                                 </td>
                                 <td class="align-middle text-xs">
                                     <?= $data->phone ?>
+                                </td>
+                                <td class="align-middle">
+                                    <button class="btn btn-sm btn-default" title="Atur ulang password" onclick="resetPassword('<?= $data->id ?>')">
+                                        <i class="fas fa-user-lock"></i>
+                                    </button>
                                 </td>
                             </tr>
                     <?php

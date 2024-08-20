@@ -51,6 +51,43 @@
         document.body.removeChild(sampleTextarea);
         toastr.success('ID berhasil disalin ke clipboard')
     }
+
+    const resetPassword = id => {
+        Swal.fire({
+            title: "Kamu yakin?",
+            text: "Pastikan kamu sudah validasi sebelumnya",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Lanjut",
+            cancelButtonText: 'Nggak jadi'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    url: '<?= base_url() ?>school/resetPassword',
+                    method: 'POST',
+                    data: {
+                        id
+                    },
+                    dataType: 'JSON',
+                    success: function(res) {
+                        let status = res.status
+                        if (status != 200) {
+                            errorAlert(res.message)
+                            return false
+                        }
+
+                        Swal.fire({
+                            title: "Yeaahh..",
+                            text: res.message,
+                            icon: "success"
+                        });
+                    }
+                })
+            }
+        });
+    }
 </script>
 </body>
 

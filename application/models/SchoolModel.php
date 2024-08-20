@@ -124,4 +124,32 @@ class SchoolModel extends CI_Model
             $paymentResult
         ];
     }
+
+    public function resetPassword($id)
+    {
+        $user = $this->db->get_where('users', ['id' => $id])->row_array();
+        if (!$user) {
+            return [
+                'status' => 404,
+                'message' => 'Data user tidak ditemukan'
+            ];
+        }
+
+        $this->db->where(['id' => $id])->update('users', [
+            'username' => $id,
+            'password' => password_hash('p2k1391', PASSWORD_DEFAULT)
+        ]);
+
+        if ($this->db->affected_rows() <= 0) {
+            return [
+                'status' => 404,
+                'message' => 'Terjadi kesalahan saat menyimpan data'
+            ];
+        }
+
+        return [
+            'status' => 200,
+            'message' => 'Username: '.$id.' - Password: p2k1391'
+        ];
+    }
 }

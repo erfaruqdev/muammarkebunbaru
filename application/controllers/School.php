@@ -141,4 +141,12 @@ class School extends CI_Controller
         $writer = new Xlsx($spreadsheet);
         $writer->save('php://output');
     }
+
+    public function resetPassword()
+    {
+        $id = $this->input->post('id', true);
+        $result = $this->sm->resetPassword($id);
+
+        echo json_encode($result);
+    }
 }
