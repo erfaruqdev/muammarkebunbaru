@@ -29,12 +29,6 @@
             border-radius: 0.25rem;
             background-color: #fff;
         }
-
-        .rotate {
-            -moz-transform: translateX(-50%) translateY(-50%) rotate(-90deg);
-            -webkit-transform: translateX(-50%) translateY(-50%) rotate(-90deg);
-            transform:  translateX(-50%) translateY(-50%) rotate(-90deg);
-        }
     </style>
 </head>
 

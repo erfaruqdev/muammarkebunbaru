@@ -222,20 +222,19 @@
                                 <th rowspan="2">ALAMAT</th>
                                 <th rowspan="2">PJGB</th>
                                 <th rowspan="2">GB</th>
-                                <th colspan="10">LOMBA</th>
+                                <?php
+                                if ($contest) {
+                                    foreach ($contest as $c) {
+                                        ?>
+                                        <th class="rotate"><?= $c->name ?></th>
+                                        <?php
+                                    }
+                                    ?>
+                                    <?php
+                                }
+                                ?>
                                 <th rowspan="2">POIN</th>
                             </tr>
-                            <?php
-                            if ($contest) {
-                                foreach ($contest as $c) {
-                                    ?>
-                                    <td class="rotate"><?= $c->name ?></td>
-                                        <?php
-                                }
-                            ?>
-                        <?php
-                            }
-                        ?>
                         </thead>
                         <tbody>
                             <?php

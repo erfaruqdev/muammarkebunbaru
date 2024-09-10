@@ -17,7 +17,7 @@ if ($status == 200) {
                 if ($contests) {
                     foreach ($contests as $contest) {
                         ?>
-                        <td class="rotate"><?= $contest->name ?></td>
+                        <td><?= $contest->name ?></td>
                             <?php
                     }
                 }
