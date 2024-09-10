@@ -112,7 +112,7 @@
 </div>
 
 <div class="modal fade" id="modal-point" data-backdrop="static" data-keyboard="false">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header py-2">
                 <h6 class="modal-title w-75">Daftar Poin Juara Umum</h6>

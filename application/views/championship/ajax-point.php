@@ -4,11 +4,24 @@ if ($status == 200) {
     <table class="table table-sm mb-0">
         <thead>
             <tr>
-                <th>NO</th>
-                <th>MMU</th>
-                <th>PJGB</th>
-                <th>GB</th>
-                <th class="text-center">POIN</th>
+                <th rowspan="2">NO</th>
+                <th rowspan="2">MMU</th>
+                <th rowspan="2">PJGB</th>
+                <th rowspan="2">GB</th>
+                <th colspan="10">LOMBA</th>
+                <th rowspan="2" class="text-center">POIN</th>
+            </tr>
+            <tr>
+                <?php
+                $contests = $this->cm->contests();
+                if ($contests) {
+                    foreach ($contests as $contest) {
+                        ?>
+                        <td><?= $contest->name ?></td>
+                            <?php
+                    }
+                }
+                ?>
             </tr>
         </thead>
         <tbody>
