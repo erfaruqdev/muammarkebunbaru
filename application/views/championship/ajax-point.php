@@ -13,7 +13,7 @@ if ($status == 200) {
             </tr>
             <tr>
                 <?php
-                $contests = $this->cm->contests();
+                $contests = $this->cm->contest();
                 if ($contests) {
                     foreach ($contests as $contest) {
                         ?>
