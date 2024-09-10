@@ -252,16 +252,16 @@
                                     <td><?= $d->village . ', ' . $d->city ?></td>
                                     <td><?= $d->pjgb ?></td>
                                     <td><?= $d->gb ?></td>
-                                    <td><?= $contest1->point ? $contest1->point : 0 ?></td>
-                                    <td><?= $contest2->point ? $contest2->point : 0 ?></td>
-                                    <td><?= $contest3->point ? $contest3->point : 0 ?></td>
-                                    <td><?= $contest4->point ? $contest4->point : 0 ?></td>
-                                    <td><?= $contest5->point ? $contest5->point : 0 ?></td>
-                                    <td><?= $contest6->point ? $contest6->point : 0 ?></td>
-                                    <td><?= $contest7->point ? $contest7->point : 0 ?></td>
-                                    <td><?= $contest8->point ? $contest8->point : 0 ?></td>
-                                    <td><?= $contest9->point ? $contest9->point : 0 ?></td>
-                                    <td><?= $contest10->point ? $contest10->point : 0 ?></td>
+                                    <td><?= ($contest1) ? $contest1->point : 0 ?></td>
+                                    <td><?= ($contest2) ? $contest2->point : 0 ?></td>
+                                    <td><?= ($contest3) ? $contest3->point : 0 ?></td>
+                                    <td><?= ($contest4) ? $contest4->point : 0 ?></td>
+                                    <td><?= ($contest5) ? $contest5->point : 0 ?></td>
+                                    <td><?= ($contest6) ? $contest6->point : 0 ?></td>
+                                    <td><?= ($contest7) ? $contest7->point : 0 ?></td>
+                                    <td><?= ($contest8) ? $contest8->point : 0 ?></td>
+                                    <td><?= ($contest9) ? $contest9->point : 0 ?></td>
+                                    <td><?= ($contest10) ? $contest10->point : 0 ?></td>
                                     <td class="text-center"><?= $d->points ?></td>
                                 </tr>
                             <?php
