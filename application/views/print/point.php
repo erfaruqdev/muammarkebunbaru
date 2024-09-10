@@ -206,23 +206,45 @@
                 if ($status == 200) {
                 ?>
                     <h6 class="text-center mb-1">
-                        DAFTAR POIN JUARA UMUM MUAMMAR 1444 KEBUN BARU
+                        DAFTAR POIN JUARA UMUM MUAMMAR 1446 KEBUN BARU
                     </h6>
                     <table class="tablestripped table-xl">
                         <thead>
                             <tr>
-                                <th>NO</th>
-                                <th>MMU</th>
-                                <th>ALAMAT</th>
-                                <th>PJGB</th>
-                                <th>GB</th>
-                                <th>POIN</th>
+                                <th rowspan="2">NO</th>
+                                <th rowspan="2">MMU</th>
+                                <th rowspan="2">ALAMAT</th>
+                                <th rowspan="2">PJGB</th>
+                                <th rowspan="2">GB</th>
+                                <th colspan="10">LOMBA</th>
+                                <th rowspan="2">POIN</th>
                             </tr>
+                            <?php
+                            if ($contest) {
+                                foreach ($contest as $c) {
+                                    ?>
+                                    <td><?= $c->name ?></td>
+                                        <?php
+                                }
+                            ?>
+                        <?php
+                            }
+                        ?>
                         </thead>
                         <tbody>
                             <?php
                             $no = 1;
                             foreach ($data as $d) {
+                                $contest1 = $this->cm->pointByContes($d->school_id, 1);
+                                $contest2 = $this->cm->pointByContes($d->school_id, 2);
+                                $contest3 = $this->cm->pointByContes($d->school_id, 3);
+                                $contest4 = $this->cm->pointByContes($d->school_id, 4);
+                                $contest5 = $this->cm->pointByContes($d->school_id, 5);
+                                $contest6 = $this->cm->pointByContes($d->school_id, 6);
+                                $contest7 = $this->cm->pointByContes($d->school_id, 7);
+                                $contest8 = $this->cm->pointByContes($d->school_id, 8);
+                                $contest9 = $this->cm->pointByContes($d->school_id, 9);
+                                $contest10 = $this->cm->pointByContes($d->school_id, 10);
                             ?>
                                 <tr>
                                     <td class="text-center"><?= $no++ ?></td>
@@ -230,6 +252,16 @@
                                     <td><?= $d->village . ', ' . $d->city ?></td>
                                     <td><?= $d->pjgb ?></td>
                                     <td><?= $d->gb ?></td>
+                                    <td><?= $contest1->point ? $contest1->point : 0 ?></td>
+                                    <td><?= $contest2->point ? $contest2->point : 0 ?></td>
+                                    <td><?= $contest3->point ? $contest3->point : 0 ?></td>
+                                    <td><?= $contest4->point ? $contest4->point : 0 ?></td>
+                                    <td><?= $contest5->point ? $contest5->point : 0 ?></td>
+                                    <td><?= $contest6->point ? $contest6->point : 0 ?></td>
+                                    <td><?= $contest7->point ? $contest7->point : 0 ?></td>
+                                    <td><?= $contest8->point ? $contest8->point : 0 ?></td>
+                                    <td><?= $contest9->point ? $contest9->point : 0 ?></td>
+                                    <td><?= $contest10->point ? $contest10->point : 0 ?></td>
                                     <td class="text-center"><?= $d->points ?></td>
                                 </tr>
                             <?php

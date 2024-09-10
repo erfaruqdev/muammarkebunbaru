@@ -269,4 +269,9 @@ class ChampionshipModel extends CI_Model
             $data
         ];
     }
+
+    public function pointByContes($mmu, $contest)
+    {
+        return $this->db->get_where('valuations', ['school_id' => $mmu, 'contest_id' => $contest])->row_object();
+    }
 }

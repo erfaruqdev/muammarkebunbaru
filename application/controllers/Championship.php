@@ -46,7 +46,8 @@ class Championship extends CI_Controller
         $data = [
             'title' => 'Print Out Daftar Poin',
             'status' => $result[0],
-            'data' => $result[1]
+            'data' => $result[1],
+            'contest' => $this->cm->contest()
         ];
         $this->load->view('print/point', $data);
     }
