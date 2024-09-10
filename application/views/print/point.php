@@ -217,11 +217,11 @@
                     <table class="tablestripped table-xl">
                         <thead>
                             <tr>
-                                <th rowspan="2">NO</th>
-                                <th rowspan="2">MMU</th>
-                                <th rowspan="2">ALAMAT</th>
-                                <th rowspan="2">PJGB</th>
-                                <th rowspan="2">GB</th>
+                                <th>NO</th>
+                                <th>MMU</th>
+                                <th>ALAMAT</th>
+                                <th>PJGB</th>
+                                <th>GB</th>
                                 <?php
                                 if ($contest) {
                                     foreach ($contest as $c) {
@@ -233,7 +233,7 @@
                                     <?php
                                 }
                                 ?>
-                                <th rowspan="2">POIN</th>
+                                <th>POIN</th>
                             </tr>
                         </thead>
                         <tbody>
