@@ -4,12 +4,12 @@ if ($status == 200) {
     <table class="table table-sm mb-0">
         <thead>
             <tr>
-                <th rowspan="2">NO</th>
-                <th rowspan="2">MMU</th>
-                <th rowspan="2">PJGB</th>
-                <th rowspan="2">GB</th>
-                <th colspan="10">LOMBA</th>
-                <th rowspan="2" class="text-center">POIN</th>
+                <th rowspan="2" style="vertical-align: middle">NO</th>
+                <th rowspan="2" style="vertical-align: middle">MMU</th>
+                <th rowspan="2" style="vertical-align: middle">PJGB</th>
+                <th rowspan="2" style="vertical-align: middle">GB</th>
+                <th colspan="10" style="vertical-align: middle; text-align: center">LOMBA</th>
+                <th rowspan="2" style="vertical-align: middle" class="text-center">POIN</th>
             </tr>
             <tr>
                 <?php
