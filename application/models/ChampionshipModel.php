@@ -252,7 +252,7 @@ class ChampionshipModel extends CI_Model
             ];
         }
 
-        $this->db->select('SUM(a.point) AS points, b.name, b.village, b.city, b.pjgb, b.gb');
+        $this->db->select('SUM(a.point) AS points, a.school_id, b.name, b.village, b.city, b.pjgb, b.gb');
         $this->db->from('valuations AS a')->join('schools AS b', 'a.school_id = b.id');
         $this->db->where('a.category', $category);
         $data = $this->db->group_by('a.school_id')->order_by('points', 'DESC')->get()->result_object();
