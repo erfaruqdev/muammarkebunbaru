@@ -189,6 +189,12 @@
             margin-top: 10px;
             margin-bottom: 10px;
         }
+
+        .rotate {
+            -moz-transform: translateX(-50%) translateY(-50%) rotate(-90deg);
+            -webkit-transform: translateX(-50%) translateY(-50%) rotate(-90deg);
+            transform:  translateX(-50%) translateY(-50%) rotate(-90deg);
+        }
     </style>
 </head>
 
@@ -223,7 +229,7 @@
                             if ($contest) {
                                 foreach ($contest as $c) {
                                     ?>
-                                    <td><?= $c->name ?></td>
+                                    <td class="rotate"><?= $c->name ?></td>
                                         <?php
                                 }
                             ?>
