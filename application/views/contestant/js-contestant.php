@@ -52,6 +52,7 @@
 
     $('#changeCategory').on('change', function() {
         $('#category').val($(this).val())
+        $('#category-print').val($(this).val())
         loadData()
     })
 

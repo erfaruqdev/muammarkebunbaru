@@ -58,4 +58,19 @@ class Contestant extends CI_Controller
 
         echo json_encode($result);
     }
+
+    public function print()
+    {
+        $category = $this->input->post('category');
+        if ($category == '') {
+            $category = 1;
+        }
+
+        $data = [
+            'mmu' => $this->cm->mmu(),
+            'contest' => $this->cm->contest(),
+            'category' => $category
+        ];
+        $this->load->view('print/contestant', $data);
+    }
 }

@@ -3,8 +3,8 @@
     <!-- Main content -->
     <section class="content p-3">
         <div class="row">
-            <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3 mb-2 d-none d-lg-block d-xl-block">
-                <h4 class="card-title mt-xl-1 pl-2">Data Peserta Muammar</h4>
+            <div class="col-sm-12 col-md-6 col-lg-3 col-xl-2 mb-2 d-none d-lg-block d-xl-block">
+                <h4 class="card-title mt-xl-1 pl-2">Data Peserta</h4>
             </div>
             <div class="col-12 col-md-6 col-lg-3 col-xl-3 mb-2">
                 <select id="changeMMU" class="form-control form-control-sm w-100 select2bs4">
@@ -39,12 +39,20 @@
                     ?>
                 </select>
             </div>
-            <div class="col-sm-12 col-md-6 col-lg-3 col-xl-2 mb-2">
+            <div class="col-sm-12 col-md-6 col-lg-3 col-xl-2 mb-2 d-none d-lg-block d-xl-block">
+                <form action="<?= base_url() ?>contestant/print" method="post" target="_blank">
+                    <input type="hidden" name="category" id="category-print" value="">
+                    <button type="submit" class="btn btn-default btn-sm w-100">
+                        <i class="fa fa-print"></i> Print Out
+                    </button>
+                </form>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-3 col-xl-1 mb-2">
                 <button type="button" class="btn btn-primary btn-sm w-100 <?= ($setting > 0) ? 'd-none' : 'd-inline-block' ?>" data-toggle="modal" data-target="#modal-contestant">
-                    <i class="fa fa-plus-circle"></i> Tambah Peserta
+                    <i class="fa fa-plus-circle"></i> Tambah
                 </button>
                 <button type="button" class="btn btn-danger btn-sm w-100 <?= ($setting > 0) ? 'd-inline-block' : 'd-none' ?>" onclick="errorAlert('Pendaftaran peserta sudah ditutup')">
-                    <i class="fa fa-plus-circle"></i> Registrasi Ditutup
+                    <i class="fa fa-plus-circle"></i> Ditutup
                 </button>
             </div>
         </div>

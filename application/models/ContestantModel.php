@@ -236,4 +236,13 @@ class ContestantModel extends CI_Model
             'data' => $data
         ];
     }
+
+    public function checkContestPerMmu($mmu, $contest, $category)
+    {
+        return $this->db->get_where('participants', [
+            'school_id' => $mmu,
+            'contest_id' => $contest,
+            'category' => $category
+        ])->num_rows();
+    }
 }
