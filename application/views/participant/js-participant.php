@@ -16,6 +16,10 @@
         }
     })
 
+    $('#changeCategory').on('change', function (){
+        $('#category-participant').val($(this).val())
+    })
+
     $(function() {
         loadData()
     })

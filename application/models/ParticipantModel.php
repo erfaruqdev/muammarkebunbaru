@@ -213,4 +213,19 @@ class ParticipantModel extends CI_Model
             'data' => $data
         ];
     }
+
+    public function printData($category)
+    {
+        $mmu = $this->session->userdata('user_id');
+
+        $this->db->select('a.*, b.id AS contest_id, b.name AS contest_name, c.name as school, c.undian')->from('participants AS a');
+        $this->db->join('contests AS b', 'b.id = a.contest_id');
+        $this->db->join('schools AS c', 'c.id = a.school_id');
+        $this->db->where('a.school_id', $mmu);
+        $this->db->where('a.category', $category);
+        $this->db->order_by('b.id', 'ASC');
+        $data = $this->db->get()->result_object();
+
+        return $data;
+    }
 }

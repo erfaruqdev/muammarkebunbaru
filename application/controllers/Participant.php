@@ -57,4 +57,14 @@ class Participant extends CI_Controller
 
         echo json_encode($result);
     }
+
+    public function printCard()
+    {
+        $category = $this->input->post('category');
+        $data = $this->pm->printData($category);
+        $this->load->view('print/card', [
+            'data' => $data,
+            'category' => ($category == 1) ? 'PUTRA' : 'PUTRI'
+        ]);
+    }
 }
