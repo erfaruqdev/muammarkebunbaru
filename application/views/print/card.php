@@ -8,8 +8,7 @@
     <link rel="shortcut icon" href="<?= base_url() ?>/assets/logo.png">
     <style>
         * {
-            font-family: 'Segoe UI', 'Corbel', Courier, monospace;
-            /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
+             font-family: 'Times New Roman', serif;
             font-size: 10pt;
         }
 
@@ -216,18 +215,24 @@
                 $order++;
         ?>
                 <div class="card">
-                    <div class="row" style="margin-top: 60px">
+                    <div class="row" style="margin-top: 55px">
                         <div class="col-8" style="padding-left: 20px;">
-                            <h3><?= $row->name ?></h3>
-                            <div>
-                                <?= $row->address ?> <br><br>
-                                <?= $row->school ?> <br><br>
-                                <h3><?= $row->contest_name.' '.$category ?></h3>
+                            <div style="margin-bottom: 5px">
+                                <span>Nama</span>
+                                <h3><?= $row->name ?></h3>
                             </div>
-
+                            <div style="margin-bottom: 5px">
+                                <span>Delegasi</span>
+                                <h4><?= $row->school ?></h4>
+                                <span><?= $row->village.', '.$row->city ?></span>
+                            </div>
+                            <div style="margin-bottom: 5px">
+                                <span>Lomba</span>
+                                <h4><?= $row->contest_name.' '.$category ?></h4>
+                            </div>
                         </div>
-                        <div class="col-3" style="padding-left: 6px">
-                            <h2 style="font-size: 30pt; margin-top: 18px">
+                        <div class="col-3" style="padding-left: 8px">
+                            <h2 style="font-size: 30pt; margin-top: 23px">
                                 <?= $row->undian ?>
                             </h2>
                         </div>
@@ -244,10 +249,10 @@
     </div>
 </div>
 <script>
-    window.print()
-    window.onafterprint = function () {
-        window.close()
-    }
+    // window.print()
+    // window.onafterprint = function () {
+    //     window.close()
+    // }
 </script>
 <?php
 }else{
