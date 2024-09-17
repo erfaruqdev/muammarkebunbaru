@@ -63,8 +63,7 @@ class Participant extends CI_Controller
         $category = $this->input->post('category');
         $data = $this->pm->printData($category);
         $this->load->view('print/card', [
-            'data' => $data,
-            'category' => ($category == 1) ? 'PUTRA' : 'PUTRI'
+            'data' => $data
         ]);
     }
 }

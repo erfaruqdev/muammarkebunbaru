@@ -8,7 +8,7 @@
     <link rel="shortcut icon" href="<?= base_url() ?>/assets/logo.png">
     <style>
         * {
-             font-family: 'Times New Roman', serif;
+             font-family: 'Helvetica', sans-serif;
             font-size: 10pt;
         }
 
@@ -228,7 +228,7 @@
                             </div>
                             <div style="margin-bottom: 5px">
                                 <span>Lomba</span>
-                                <h4><?= $row->contest_name.' '.$category ?></h4>
+                                <h4><?= $row->contest_name ?> <?= ($row->category == 1) ? 'PUTRA' : 'PUTRI' ?></h4>
                             </div>
                         </div>
                         <div class="col-3" style="padding-left: 8px">
@@ -239,7 +239,7 @@
                     </div>
                 </div>
         <?php
-                if ($order == 10 || $order == 20 || $order == 30 || $order == 40){
+                if ($order == 10 || $order == 20 || $order == 30 || $order == 40 || $order == 50 || $order == 60 || $order == 70){
                     ?>
                     <p style="page-break-after: always;">&nbsp;</p>
         <?php

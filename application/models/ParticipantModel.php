@@ -222,8 +222,10 @@ class ParticipantModel extends CI_Model
         $this->db->join('contests AS b', 'b.id = a.contest_id');
         $this->db->join('schools AS c', 'c.id = a.school_id');
         $this->db->where('a.school_id', $mmu);
-        $this->db->where('a.category', $category);
-        $this->db->order_by('b.id', 'ASC');
+        if ($category != '') {
+            $this->db->where('a.category', $category);
+        }
+        $this->db->order_by('a.category ASC, b.id ASC');
         $data = $this->db->get()->result_object();
 
         return $data;
