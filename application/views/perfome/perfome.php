@@ -4,7 +4,7 @@
     <section class="content p-3">
         <div class="row">
             <div class="col-lg-7 col-xl-7"></div>
-            <div class="col-lg-3 col-xl-3 mb-2">
+            <div class="col-6 col-lg-3 col-xl-3 mb-2">
                 <select id="changeContest" class="form-control form-control-sm w-100" onchange="loadData()">
                     <option value="">..:Semua Lomba:..</option>
                     <?php
@@ -21,7 +21,7 @@
                     ?>
                 </select>
             </div>
-            <div class="col-lg-2 col-xl-2">
+            <div class="col-6 col-lg-2 col-xl-2">
                 <select id="changeCategory" class="form-control form-control-sm w-100" onchange="loadData()">
                     <option value="">..:Semua Kategori:..</option>
                     <option value="1">PUTRA</option>

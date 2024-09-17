@@ -3,17 +3,17 @@
     <!-- Main content -->
     <section class="content p-3">
         <div class="row">
-            <div class="col-sm-12 col-md-6 col-lg-3 col-xl-6 mb-2">
+            <div class="col-12 col-sm-4 col-md-6 col-lg-3 col-xl-6 mb-2">
                 <h4 class="card-title mt-xl-1 pl-2">Data Peserta Muammar</h4>
             </div>
-            <div class="col-sm-12 col-md-6 col-lg-3 col-xl-2 mb-2">
+            <div class="col-4 col-sm-4 col-md-6 col-lg-3 col-xl-2 mb-2">
                 <select id="changeCategory" onchange="loadData()" class="form-control form-control-sm w-100">
                     <option value="">..:Kategori:..</option>
                     <option value="1">PUTRA</option>
                     <option value="2">PUTRI</option>
                 </select>
             </div>
-            <div class="col-sm-12 col-md-6 col-lg-3 col-xl-2 mb-2">
+            <div class="col-4 col-sm-4 col-md-6 col-lg-3 col-xl-2 mb-2">
                 <form action="<?= base_url() ?>participant/printCard" method="post" target="_blank">
                     <input type="hidden" name="category" id="category-participant" value="">
                     <button type="submit" class="btn btn-sm btn-primary w-100">
@@ -21,9 +21,9 @@
                     </button>
                 </form>
             </div>
-            <div class="col-sm-12 col-md-6 col-lg-3 col-xl-2 mb-2">
+            <div class="col-4 col-sm-4 col-md-6 col-lg-3 col-xl-2 mb-2">
                 <button type="button" class="btn btn-sm btn-primary w-100 <?= ($setting > 0) ? 'd-none' : 'd-inline-block' ?>" data-toggle="modal" data-target="#modal-participant">
-                    <i class="fa fa-plus-circle"></i> Tambah Peserta
+                    <i class="fa fa-plus-circle"></i> Tambah
                 </button>
                 <button type="button" class="btn btn-sm btn-danger w-100 <?= ($setting > 0) ? 'd-inline-block' : 'd-none' ?>" onclick="errorAlert('Pendaftaran peserta sudah ditutup')">
                     <i class="fas fa-exclamation-circle"></i> Registrasi Ditutup
