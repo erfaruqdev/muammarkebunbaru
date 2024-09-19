@@ -3,7 +3,7 @@
     <!-- Main content -->
     <section class="content p-3">
         <div class="row">
-            <div class="col-12 col-sm-4 col-md-6 col-lg-3 col-xl-6 mb-2">
+            <div class="col-12 col-sm-4 mb-2">
                 <h4 class="card-title mt-xl-1 pl-2">Data Peserta Muammar</h4>
             </div>
             <div class="col-4 col-sm-4 col-md-6 col-lg-3 col-xl-2 mb-2">
@@ -13,13 +13,18 @@
                     <option value="2">PUTRI</option>
                 </select>
             </div>
-            <div class="col-4 col-sm-4 col-md-6 col-lg-3 col-xl-2 mb-2">
+            <div class="col-2 col-sm-4 col-md-6 col-lg-3 col-xl-2 mb-2">
                 <form action="<?= base_url() ?>participant/printCard" method="post" target="_blank">
                     <input type="hidden" name="category" id="category-participant" value="">
                     <button type="submit" class="btn btn-sm btn-primary w-100">
-                        <i class="fa fa-plus-circle"></i> Print Kartu
+                        <i class="fa fa-print"></i> <span class="d-none d-sm-inline">Print Kartu</span>
                     </button>
                 </form>
+            </div>
+            <div class="col-2 col-sm-4 col-md-6 col-lg-3 col-xl-2 mb-2">
+                <a href="<?= base_url() ?>participant/export" class="btn btn-sm btn-primary w-100" target="_blank">
+                    <i class="fa fa-download"></i> <span class="d-none d-sm-inline"> Kartu</span>
+                </a>
             </div>
             <div class="col-4 col-sm-4 col-md-6 col-lg-3 col-xl-2 mb-2">
                 <button type="button" class="btn btn-sm btn-primary w-100 <?= ($setting > 0) ? 'd-none' : 'd-inline-block' ?>" data-toggle="modal" data-target="#modal-participant">

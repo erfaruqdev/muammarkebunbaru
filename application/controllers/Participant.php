@@ -66,4 +66,31 @@ class Participant extends CI_Controller
             'data' => $data
         ]);
     }
+
+    public function export()
+    {
+        $category = '';
+        // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
+        $this->load->library('pdfgenerator');
+
+        // title dari pdf
+        $data = [
+            'data' => $this->pm->printData($category)
+        ];
+        //$this->load->view('participant/card', $data);
+
+        // filename dari pdf ketika didownload
+        $file_pdf = 'data-analitik-muammar-kebunbaru';
+        // setting paper
+        $paper = 'legal';
+        //orientasi paper potrait / landscape
+        $orientation = "portrait";
+
+        $html = $this->load->view('participant/card',$data, true);
+//		$html = $this->load->view('school/unpaid',$data, true);
+        //$this->load->view('registration/invoice',$data);
+
+        // run dompdf
+        $this->pdfgenerator->generate($html, $file_pdf,$paper,$orientation);
+    }
 }
