@@ -217,14 +217,8 @@
                             <th>UNDI</th>
                             <th>ID MMU</th>
                             <th>NAMA</th>
-                            <?php
-                            if($contest == 'CERDAS CERMAT' || $contest == 'RANGKING SATU' || $contest == 'MERANGKAI KALIMAT') {
-                            ?>
                             <th>MMU</th>
                             <th>ALAMAT</th>
-                            <?php }else{ ?>
-                                <th>MMU</th>
-                            <?php } ?>
                             <th>NILAI</th>
                         </tr>
                     </thead>
