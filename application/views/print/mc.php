@@ -229,14 +229,8 @@
                                 <td class="text-center"><?= $d->undian ?></td>
                                 <td class="text-center"><?= $d->school_id ?></td>
                                 <td><?= $d->name ?></td>
-                                <?php
-                                if($contest == 'CERDAS CERMAT' || $contest == 'RANGKING SATU' || $contest == 'MERANGKAI KALIMAT') {
-                                ?>
                                 <td><?= $d->mmu ?></td>
                                 <td><?= $d->village.', '.$d->city ?></td>
-                                <?php }else{ ?>
-                                    <td><?= $d->mmu ?></td>
-                                <?php } ?>
                                 <td></td>
                             </tr>
                         <?php
