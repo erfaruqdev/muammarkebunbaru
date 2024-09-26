@@ -210,7 +210,6 @@
                             <th>NAMA</th>
                             <th>MMU</th>
                             <th>ALAMAT</th>
-                            <th>NILAI</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -225,7 +224,6 @@
                                 <td><?= $d->name ?></td>
                                 <td><?= $d->mmu ?></td>
                                 <td><?= $d->village.', '.$d->city ?></td>
-                                <td></td>
                             </tr>
                         <?php
                         }
