@@ -102,6 +102,7 @@
                         }
 
                         $('#modal-contestant').modal('hide')
+                        loadData()
                         toastr.success(`Yeah! ${res.message} peserta berhasil ditambahkan`)
                     }
                 })

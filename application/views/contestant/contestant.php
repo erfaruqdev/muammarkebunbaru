@@ -48,12 +48,12 @@
                 </form>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-3 col-xl-1 mb-2">
-                <button type="button" class="btn btn-primary btn-sm w-100 <?= ($setting > 0) ? 'd-none' : 'd-inline-block' ?>" data-toggle="modal" data-target="#modal-contestant">
+                <button type="button" class="btn btn-primary btn-sm w-100" data-toggle="modal" data-target="#modal-contestant">
                     <i class="fa fa-plus-circle"></i> Tambah
                 </button>
-                <button type="button" class="btn btn-danger btn-sm w-100 <?= ($setting > 0) ? 'd-inline-block' : 'd-none' ?>" onclick="errorAlert('Pendaftaran peserta sudah ditutup')">
-                    <i class="fa fa-plus-circle"></i> Ditutup
-                </button>
+<!--                <button type="button" class="btn btn-danger btn-sm w-100 --><?php //= ($setting > 0) ? 'd-inline-block' : 'd-none' ?><!--" onclick="errorAlert('Pendaftaran peserta sudah ditutup')">-->
+<!--                    <i class="fa fa-plus-circle"></i> Ditutup-->
+<!--                </button>-->
             </div>
         </div>
         <div class="row" id="loader">

@@ -44,12 +44,12 @@ class ContestantModel extends CI_Model
         $address = $this->input->post('address', true);
         $name = $this->input->post('name', true);
 
-        if ($this->setting() > 0) {
-            return [
-                'status' => 400,
-                'message' => 'Tambah peserta sudah ditutup'
-            ];
-        }
+//        if ($this->setting() > 0) {
+//            return [
+//                'status' => 400,
+//                'message' => 'Tambah peserta sudah ditutup'
+//            ];
+//        }
 
         if ($mmu == '' || $category == '' || $address == '') {
             return [
@@ -100,12 +100,12 @@ class ContestantModel extends CI_Model
         $name = $this->input->post('name_edit', true);
         $address = $this->input->post('address_edit', true);
 
-         if ($this->setting() > 0) {
-             return [
-                 'status' => 400,
-                 'message' => 'Fitur tambah dan edit sudah diblokir'
-             ];
-         }
+//         if ($this->setting() > 0) {
+//             return [
+//                 'status' => 400,
+//                 'message' => 'Fitur tambah dan edit sudah diblokir'
+//             ];
+//         }
 
         $check = $this->db->get_where('participants', [
             'id' => $id, 'school_id' => $mmu
