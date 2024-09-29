@@ -235,7 +235,6 @@
                                 <th>LOMBA</th>
                                 <th>KATEGORI</th>
                                 <th>JUARA</th>
-                                <th>POIN</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -270,7 +269,6 @@
                                     <td class="text-center"><?= $d->contest ?></td>
                                     <td class="text-center"><?= $categoryText[$d->category] ?></td>
                                     <td class="text-center"><?= $d->rank ?></td>
-                                    <td class="text-center"><?= $d->point ?></td>
                                 </tr>
                             <?php
                             }
