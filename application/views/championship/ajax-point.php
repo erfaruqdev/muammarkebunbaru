@@ -12,16 +12,16 @@ if ($status == 200) {
                 <th rowspan="2" style="vertical-align: middle" class="text-center">POIN</th>
             </tr>
             <tr>
-                <?php
-                $contests = $this->cm->contest();
-                if ($contests) {
-                    foreach ($contests as $contest) {
-                        ?>
-                        <td><?= $contest->name ?></td>
-                            <?php
-                    }
-                }
-                ?>
+                <td>CC</td>
+                <td>RS</td>
+                <td>BK</td>
+                <td>TQ</td>
+                <td>MUH</td>
+                <td>PS</td>
+                <td>PID</td>
+                <td>MK</td>
+                <td>SN</td>
+                <td>TH</td>
             </tr>
         </thead>
         <tbody>
@@ -37,16 +37,16 @@ if ($status == 200) {
                     </td>
                     <td><?= $d->pjgb ?></td>
                     <td><?= $d->gb ?></td>
-                    <td><?= $this->cm->pointByContes($d->school_id, 1) ?></td>
-                    <td><?= $this->cm->pointByContes($d->school_id, 2) ?></td>
-                    <td><?= $this->cm->pointByContes($d->school_id, 3) ?></td>
-                    <td><?= $this->cm->pointByContes($d->school_id, 4) ?></td>
-                    <td><?= $this->cm->pointByContes($d->school_id, 5) ?></td>
-                    <td><?= $this->cm->pointByContes($d->school_id, 6) ?></td>
-                    <td><?= $this->cm->pointByContes($d->school_id, 7) ?></td>
-                    <td><?= $this->cm->pointByContes($d->school_id, 8) ?></td>
-                    <td><?= $this->cm->pointByContes($d->school_id, 9) ?></td>
-                    <td><?= $this->cm->pointByContes($d->school_id, 10) ?></td>
+                    <td><?= $this->cm->pointByContestAjax($d->school_id, 1) ?></td>
+                    <td><?= $this->cm->pointByContestAjax($d->school_id, 2) ?></td>
+                    <td><?= $this->cm->pointByContestAjax($d->school_id, 3) ?></td>
+                    <td><?= $this->cm->pointByContestAjax($d->school_id, 4) ?></td>
+                    <td><?= $this->cm->pointByContestAjax($d->school_id, 5) ?></td>
+                    <td><?= $this->cm->pointByContestAjax($d->school_id, 6) ?></td>
+                    <td><?= $this->cm->pointByContestAjax($d->school_id, 7) ?></td>
+                    <td><?= $this->cm->pointByContestAjax($d->school_id, 8) ?></td>
+                    <td><?= $this->cm->pointByContestAjax($d->school_id, 9) ?></td>
+                    <td><?= $this->cm->pointByContestAjax($d->school_id, 10) ?></td>
                     <td class="text-center"><?= $d->points ?></td>
                 </tr>
             <?php

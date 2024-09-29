@@ -217,39 +217,41 @@
                     <table class="tablestripped table-xl">
                         <thead>
                             <tr>
-                                <th>NO</th>
-                                <th>MMU</th>
-                                <th>ALAMAT</th>
-                                <th>PJGB</th>
-                                <th>GB</th>
-                                <?php
-                                if ($contest) {
-                                    foreach ($contest as $c) {
-                                        ?>
-                                        <th class="rotate"><?= $c->name ?></th>
-                                        <?php
-                                    }
-                                    ?>
-                                    <?php
-                                }
-                                ?>
-                                <th>POIN</th>
+                                <th rowspan="2">NO</th>
+                                <th rowspan="2">MMU</th>
+                                <th rowspan="2">ALAMAT</th>
+                                <th rowspan="2">PJGB</th>
+                                <th rowspan="2">GB</th>
+                                <th colspan="10"></th>
+                                <th rowspan="2">POIN</th>
+                            </tr>
+                            <tr>
+                                <td>CC</td>
+                                <td>RS</td>
+                                <td>BK</td>
+                                <td>TQ</td>
+                                <td>MUH</td>
+                                <td>PS</td>
+                                <td>PID</td>
+                                <td>MK</td>
+                                <td>SN</td>
+                                <td>TH</td>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
                             $no = 1;
                             foreach ($data as $d) {
-                                $contest1 = $this->cm->pointByContes($d->school_id, 1);
-                                $contest2 = $this->cm->pointByContes($d->school_id, 2);
-                                $contest3 = $this->cm->pointByContes($d->school_id, 3);
-                                $contest4 = $this->cm->pointByContes($d->school_id, 4);
-                                $contest5 = $this->cm->pointByContes($d->school_id, 5);
-                                $contest6 = $this->cm->pointByContes($d->school_id, 6);
-                                $contest7 = $this->cm->pointByContes($d->school_id, 7);
-                                $contest8 = $this->cm->pointByContes($d->school_id, 8);
-                                $contest9 = $this->cm->pointByContes($d->school_id, 9);
-                                $contest10 = $this->cm->pointByContes($d->school_id, 10);
+                                $contest1 = $this->cm->pointByContest($d->school_id, 1);
+                                $contest2 = $this->cm->pointByContest($d->school_id, 2);
+                                $contest3 = $this->cm->pointByContest($d->school_id, 3);
+                                $contest4 = $this->cm->pointByContest($d->school_id, 4);
+                                $contest5 = $this->cm->pointByContest($d->school_id, 5);
+                                $contest6 = $this->cm->pointByContest($d->school_id, 6);
+                                $contest7 = $this->cm->pointByContest($d->school_id, 7);
+                                $contest8 = $this->cm->pointByContest($d->school_id, 8);
+                                $contest9 = $this->cm->pointByContest($d->school_id, 9);
+                                $contest10 = $this->cm->pointByContest($d->school_id, 10);
                             ?>
                                 <tr>
                                     <td class="text-center"><?= $no++ ?></td>
