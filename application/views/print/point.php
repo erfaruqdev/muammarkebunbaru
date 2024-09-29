@@ -14,7 +14,7 @@
         }
 
         .container {
-            width: 800px;
+            /*width: 800px;*/
             display: relative;
         }
 
