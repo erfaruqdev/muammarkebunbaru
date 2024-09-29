@@ -156,7 +156,7 @@ class ChampionshipModel extends CI_Model
         if ($checkMMU <= 0) {
             return [
                 400,
-                'Sebagian ID MMU tidak valid'
+                'Sebagian ID MMU tidak valid .'.$id
             ];
         }
 
