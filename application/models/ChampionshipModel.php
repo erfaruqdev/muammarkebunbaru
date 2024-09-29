@@ -65,20 +65,20 @@ class ChampionshipModel extends CI_Model
     {
         $id = str_replace('_', '', $this->input->post('id', true));
         $contest = $this->input->post('contest', true);
-        $type = $this->session->userdata('user_type');
+        $category = $this->input->post('category', true);
 
         //CEK MMU
         $checkMMU = $this->db->get_where('schools', ['id' => $id])->row_object();
 
         //CEK CONTESTANTS
         $this->db->select('*')->from('participants')->where([
-            'school_id' => $id, 'contest_id' => $contest, 'category' => $type
+            'school_id' => $id, 'contest_id' => $contest, 'category' => $category
         ]);
         $checkContestant = $this->db->get();
 
         //CEK CHAMPIONS
         $checkChampion = $this->db->get_where('champions', [
-            'school_id' => $id, 'contest_id' => $contest, 'category' => $type
+            'school_id' => $id, 'contest_id' => $contest, 'category' => $category
         ])->num_rows();
 
         //CHECK PAYMENT

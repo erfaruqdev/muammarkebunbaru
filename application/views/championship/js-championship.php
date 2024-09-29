@@ -177,8 +177,9 @@
 
     const checkData = (id, el, target) => {
         let contest = $('#contest').val()
-        if (contest == '') {
-            errorAlert('Pilih dulu jenis lomba')
+        let category = $('#category').val()
+        if (contest == '' || category == '') {
+            errorAlert('Pastikan jenis lomba & kategori sudah ditentukan')
             return false
         }
         if (contest != 2) {
@@ -190,7 +191,8 @@
             method: 'POST',
             data: {
                 id,
-                contest
+                contest,
+                category
             },
             success: res => {
                 target.html(res)
