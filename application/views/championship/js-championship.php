@@ -61,6 +61,7 @@
 
     $('#modal-champion').on('hidden.bs.modal', () => {
         $('#contest').val('')
+        $('#category').val('')
         $('#rank-1').val('')
         $('#rank-2').val('')
         $('#rank-3').val('')
