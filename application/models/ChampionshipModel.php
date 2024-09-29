@@ -200,7 +200,7 @@ class ChampionshipModel extends CI_Model
     {
         $rank = str_replace('_', '', $this->input->post('rank', true));
         $contest = $this->input->post('contest', true);
-        $type = $this->session->userdata('user_type');
+        $category = $this->input->post('category', true);
 
         if ($contest == 1 || $contest == 2) {
             $point = [1 => 4, 3, 2];
@@ -210,7 +210,7 @@ class ChampionshipModel extends CI_Model
 
         $datas = [];
         foreach ($rank as $key => $value) {
-            $check = $this->checkMMU($value, $contest, $type);
+            $check = $this->checkMMU($value, $contest, $category);
             if ($check[0] == 400) {
                 return [
                     'status' => $check[0],
@@ -222,7 +222,7 @@ class ChampionshipModel extends CI_Model
             $datas[] = [
                 'school_id' => $value,
                 'contest_id' => $contest,
-                'category' => $type,
+                'category' => $category,
                 'rank' => $key,
                 'point' => $point[$key]
             ];

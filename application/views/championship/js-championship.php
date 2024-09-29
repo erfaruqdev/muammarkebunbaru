@@ -82,6 +82,13 @@
     })
 
     const save = id => {
+        let contest = $('#contest').val()
+        let category = $('#category').val()
+        if (contest == '' || category == ''){
+            errorAlert('Pastikan lomba dan kategori sudah dipilih')
+            return false;
+        }
+
         Swal.fire({
             title: 'Yakin, nih?',
             text: 'Pastikan data diisi dengan lengkap dan benar',

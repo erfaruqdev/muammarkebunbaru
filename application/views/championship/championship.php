@@ -66,7 +66,7 @@
                     <div class="form-group row">
                         <label for="contest" class="col-sm-5 col-form-label">Jenis Lomba</label>
                         <div class="col-sm-7">
-                            <select id="contest" name="contest" class="form-control w-100" onchange="changeContest(this)">
+                            <select id="contest" name="contest" class="form-control w-100">
                                 <option value="">..:Pilih:..</option>
                                 <?php
                                 foreach ($contest as $c) {
@@ -75,6 +75,16 @@
                                 <?php
                                 }
                                 ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="contest" class="col-sm-5 col-form-label">Kategori</label>
+                        <div class="col-sm-7">
+                            <select id="category" name="category" class="form-control w-100">
+                                <option value="">..:Pilih:..</option>
+                                <option value="1">PUTRA</option>
+                                <option value="2">PUTRI</option>
                             </select>
                         </div>
                     </div>
