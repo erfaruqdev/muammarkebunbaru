@@ -222,7 +222,7 @@
                                 <th rowspan="2">ALAMAT</th>
                                 <th rowspan="2">PJGB</th>
                                 <th rowspan="2">GB</th>
-                                <th colspan="10"></th>
+                                <th colspan="10">LOMBA</th>
                                 <th rowspan="2">POIN</th>
                             </tr>
                             <tr>
