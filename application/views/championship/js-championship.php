@@ -81,7 +81,7 @@
         loadDataPoint()
     })
 
-    const save = id => {
+    const save = () => {
         let contest = $('#contest').val()
         let category = $('#category').val()
         if (contest == '' || category == ''){
