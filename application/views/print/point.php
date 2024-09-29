@@ -242,16 +242,16 @@
                             <?php
                             $no = 1;
                             foreach ($data as $d) {
-                                $contest1 = $this->cm->pointByContest($d->school_id, 1);
-                                $contest2 = $this->cm->pointByContest($d->school_id, 2);
-                                $contest3 = $this->cm->pointByContest($d->school_id, 3);
-                                $contest4 = $this->cm->pointByContest($d->school_id, 4);
-                                $contest5 = $this->cm->pointByContest($d->school_id, 5);
-                                $contest6 = $this->cm->pointByContest($d->school_id, 6);
-                                $contest7 = $this->cm->pointByContest($d->school_id, 7);
-                                $contest8 = $this->cm->pointByContest($d->school_id, 8);
-                                $contest9 = $this->cm->pointByContest($d->school_id, 9);
-                                $contest10 = $this->cm->pointByContest($d->school_id, 10);
+                                $contest1 = $this->cm->pointByContest($d->school_id, 1, $category);
+                                $contest2 = $this->cm->pointByContest($d->school_id, 2, $category);
+                                $contest3 = $this->cm->pointByContest($d->school_id, 3, $category);
+                                $contest4 = $this->cm->pointByContest($d->school_id, 4, $category);
+                                $contest5 = $this->cm->pointByContest($d->school_id, 5, $category);
+                                $contest6 = $this->cm->pointByContest($d->school_id, 6, $category);
+                                $contest7 = $this->cm->pointByContest($d->school_id, 7, $category);
+                                $contest8 = $this->cm->pointByContest($d->school_id, 8, $category);
+                                $contest9 = $this->cm->pointByContest($d->school_id, 9, $category);
+                                $contest10 = $this->cm->pointByContest($d->school_id, 10, $category);
                             ?>
                                 <tr>
                                     <td class="text-center"><?= $no++ ?></td>

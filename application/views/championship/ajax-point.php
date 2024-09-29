@@ -37,16 +37,16 @@ if ($status == 200) {
                     </td>
                     <td><?= $d->pjgb ?></td>
                     <td><?= $d->gb ?></td>
-                    <td><?= $this->cm->pointByContestAjax($d->school_id, 1) ?></td>
-                    <td><?= $this->cm->pointByContestAjax($d->school_id, 2) ?></td>
-                    <td><?= $this->cm->pointByContestAjax($d->school_id, 3) ?></td>
-                    <td><?= $this->cm->pointByContestAjax($d->school_id, 4) ?></td>
-                    <td><?= $this->cm->pointByContestAjax($d->school_id, 5) ?></td>
-                    <td><?= $this->cm->pointByContestAjax($d->school_id, 6) ?></td>
-                    <td><?= $this->cm->pointByContestAjax($d->school_id, 7) ?></td>
-                    <td><?= $this->cm->pointByContestAjax($d->school_id, 8) ?></td>
-                    <td><?= $this->cm->pointByContestAjax($d->school_id, 9) ?></td>
-                    <td><?= $this->cm->pointByContestAjax($d->school_id, 10) ?></td>
+                    <td><?= $this->cm->pointByContestAjax($d->school_id, 1, $category) ?></td>
+                    <td><?= $this->cm->pointByContestAjax($d->school_id, 2, $category) ?></td>
+                    <td><?= $this->cm->pointByContestAjax($d->school_id, 3, $category) ?></td>
+                    <td><?= $this->cm->pointByContestAjax($d->school_id, 4, $category) ?></td>
+                    <td><?= $this->cm->pointByContestAjax($d->school_id, 5, $category) ?></td>
+                    <td><?= $this->cm->pointByContestAjax($d->school_id, 6, $category) ?></td>
+                    <td><?= $this->cm->pointByContestAjax($d->school_id, 7, $category) ?></td>
+                    <td><?= $this->cm->pointByContestAjax($d->school_id, 8, $category) ?></td>
+                    <td><?= $this->cm->pointByContestAjax($d->school_id, 9, $category) ?></td>
+                    <td><?= $this->cm->pointByContestAjax($d->school_id, 10, $category) ?></td>
                     <td class="text-center"><?= $d->points ?></td>
                 </tr>
             <?php

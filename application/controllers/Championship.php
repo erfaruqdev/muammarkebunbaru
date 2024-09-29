@@ -32,10 +32,12 @@ class Championship extends CI_Controller
 
     public function loadDataPoint()
     {
+        $category = $this->input->post('category', true);
         $result = $this->cm->loadDataPoint();
         $data = [
             'status' => $result[0],
-            'data' => $result[1]
+            'data' => $result[1],
+            'category' => $category
         ];
         $this->load->view('championship/ajax-point', $data);
     }
@@ -47,7 +49,8 @@ class Championship extends CI_Controller
             'title' => 'Print Out Daftar Poin',
             'status' => $result[0],
             'data' => $result[1],
-            'contest' => $this->cm->contest()
+            'contest' => $this->cm->contest(),
+            'category' => $this->input->post('category', true)
         ];
         $this->load->view('print/point', $data);
     }

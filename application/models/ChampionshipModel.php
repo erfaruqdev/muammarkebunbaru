@@ -156,7 +156,7 @@ class ChampionshipModel extends CI_Model
         if ($checkMMU <= 0) {
             return [
                 400,
-                'Sebagian ID MMU tidak valid .'.$id
+                'Sebagian ID MMU tidak valid'
             ];
         }
 
@@ -270,14 +270,14 @@ class ChampionshipModel extends CI_Model
         ];
     }
 
-    public function pointByContest($mmu, $contest)
+    public function pointByContest($mmu, $contest, $category)
     {
         return $this->db->get_where('valuations', ['school_id' => $mmu, 'contest_id' => $contest])->row_object();
     }
 
-    public function pointByContestAjax($mmu, $contest)
+    public function pointByContestAjax($mmu, $contest, $category)
     {
-        $data = $this->db->get_where('valuations', ['school_id' => $mmu, 'contest_id' => $contest])->row_object();
+        $data = $this->db->get_where('valuations', ['school_id' => $mmu, 'contest_id' => $contest, 'category' => $category])->row_object();
         if ($data) {
             return $data->point;
         }
