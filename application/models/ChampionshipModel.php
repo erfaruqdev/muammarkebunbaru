@@ -272,7 +272,11 @@ class ChampionshipModel extends CI_Model
 
     public function pointByContest($mmu, $contest, $category)
     {
-        return $this->db->get_where('valuations', ['school_id' => $mmu, 'contest_id' => $contest])->row_object();
+        return $this->db->get_where('valuations', [
+            'school_id' => $mmu,
+            'contest_id' => $contest,
+            'category' => $category
+        ])->row_object();
     }
 
     public function pointByContestAjax($mmu, $contest, $category)
