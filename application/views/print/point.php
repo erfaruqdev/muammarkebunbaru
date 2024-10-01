@@ -222,20 +222,20 @@
                                 <th rowspan="2">ALAMAT</th>
                                 <th rowspan="2">PJGB</th>
                                 <th rowspan="2">GB</th>
-                                <th colspan="10">LOMBA</th>
+                                <th colspan="20">LOMBA</th>
                                 <th rowspan="2">POIN</th>
                             </tr>
                             <tr>
-                                <td colspan="2">CC</td>
-                                <td colspan="2">RS</td>
-                                <td colspan="2">BK</td>
-                                <td colspan="2">TQ</td>
-                                <td colspan="2">MUH</td>
-                                <td colspan="2">PS</td>
-                                <td colspan="2">PID</td>
-                                <td colspan="2">MK</td>
-                                <td colspan="2">SN</td>
-                                <td colspan="2">TH</td>
+                                <td colspan="2" class="text-center">CC</td>
+                                <td colspan="2" class="text-center">RS</td>
+                                <td colspan="2" class="text-center">BK</td>
+                                <td colspan="2" class="text-center">TQ</td>
+                                <td colspan="2" class="text-center">MUH</td>
+                                <td colspan="2" class="text-center">PS</td>
+                                <td colspan="2" class="text-center">PID</td>
+                                <td colspan="2" class="text-center">MK</td>
+                                <td colspan="2" class="text-center">SN</td>
+                                <td colspan="2" class="text-center">TH</td>
                             </tr>
                         </thead>
                         <tbody>
