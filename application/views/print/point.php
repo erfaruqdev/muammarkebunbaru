@@ -226,16 +226,16 @@
                                 <th rowspan="2">POIN</th>
                             </tr>
                             <tr>
-                                <td>CC</td>
-                                <td>RS</td>
-                                <td>BK</td>
-                                <td>TQ</td>
-                                <td>MUH</td>
-                                <td>PS</td>
-                                <td>PID</td>
-                                <td>MK</td>
-                                <td>SN</td>
-                                <td>TH</td>
+                                <td colspan="2">CC</td>
+                                <td colspan="2">RS</td>
+                                <td colspan="2">BK</td>
+                                <td colspan="2">TQ</td>
+                                <td colspan="2">MUH</td>
+                                <td colspan="2">PS</td>
+                                <td colspan="2">PID</td>
+                                <td colspan="2">MK</td>
+                                <td colspan="2">SN</td>
+                                <td colspan="2">TH</td>
                             </tr>
                         </thead>
                         <tbody>
@@ -260,15 +260,25 @@
                                     <td><?= $d->pjgb ?></td>
                                     <td><?= $d->gb ?></td>
                                     <td><?= ($contest1) ? $contest1->point : 0 ?></td>
+                                    <td><?= ($contest1) ? $contest1->rank : 0 ?></td>
                                     <td><?= ($contest2) ? $contest2->point : 0 ?></td>
+                                    <td><?= ($contest2) ? $contest2->rank : 0 ?></td>
                                     <td><?= ($contest3) ? $contest3->point : 0 ?></td>
+                                    <td><?= ($contest3) ? $contest3->rank : 0 ?></td>
                                     <td><?= ($contest4) ? $contest4->point : 0 ?></td>
+                                    <td><?= ($contest4) ? $contest4->rank : 0 ?></td>
                                     <td><?= ($contest5) ? $contest5->point : 0 ?></td>
+                                    <td><?= ($contest5) ? $contest5->rank : 0 ?></td>
                                     <td><?= ($contest6) ? $contest6->point : 0 ?></td>
+                                    <td><?= ($contest6) ? $contest6->rank : 0 ?></td>
                                     <td><?= ($contest7) ? $contest7->point : 0 ?></td>
+                                    <td><?= ($contest7) ? $contest7->rank : 0 ?></td>
                                     <td><?= ($contest8) ? $contest8->point : 0 ?></td>
+                                    <td><?= ($contest8) ? $contest8->rank : 0 ?></td>
                                     <td><?= ($contest9) ? $contest9->point : 0 ?></td>
+                                    <td><?= ($contest9) ? $contest9->rank : 0 ?></td>
                                     <td><?= ($contest10) ? $contest10->point : 0 ?></td>
+                                    <td><?= ($contest10) ? $contest10->rank : 0 ?></td>
                                     <td class="text-center"><?= $d->points ?></td>
                                 </tr>
                             <?php

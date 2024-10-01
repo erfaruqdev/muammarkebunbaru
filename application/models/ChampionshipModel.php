@@ -279,9 +279,9 @@ class ChampionshipModel extends CI_Model
     {
         $data = $this->db->get_where('valuations', ['school_id' => $mmu, 'contest_id' => $contest, 'category' => $category])->row_object();
         if ($data) {
-            return $data->point;
+            return [$data->point, $data->rank];
         }
 
-        return 0;
+        return [0, 0];
     }
 }

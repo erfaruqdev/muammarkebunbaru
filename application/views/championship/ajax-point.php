@@ -12,16 +12,16 @@ if ($status == 200) {
                 <th rowspan="2" style="vertical-align: middle" class="text-center">POIN</th>
             </tr>
             <tr>
-                <td>CC</td>
-                <td>RS</td>
-                <td>BK</td>
-                <td>TQ</td>
-                <td>MUH</td>
-                <td>PS</td>
-                <td>PID</td>
-                <td>MK</td>
-                <td>SN</td>
-                <td>TH</td>
+                <td colspan="2">CC</td>
+                <td colspan="2">RS</td>
+                <td colspan="2">BK</td>
+                <td colspan="2">TQ</td>
+                <td colspan="2">MUH</td>
+                <td colspan="2">PS</td>
+                <td colspan="2">PID</td>
+                <td colspan="2">MK</td>
+                <td colspan="2">SN</td>
+                <td colspan="2">TH</td>
             </tr>
         </thead>
         <tbody>
@@ -37,16 +37,26 @@ if ($status == 200) {
                     </td>
                     <td><?= $d->pjgb ?></td>
                     <td><?= $d->gb ?></td>
-                    <td><?= $this->cm->pointByContestAjax($d->school_id, 1, $category) ?></td>
-                    <td><?= $this->cm->pointByContestAjax($d->school_id, 2, $category) ?></td>
-                    <td><?= $this->cm->pointByContestAjax($d->school_id, 3, $category) ?></td>
-                    <td><?= $this->cm->pointByContestAjax($d->school_id, 4, $category) ?></td>
-                    <td><?= $this->cm->pointByContestAjax($d->school_id, 5, $category) ?></td>
-                    <td><?= $this->cm->pointByContestAjax($d->school_id, 6, $category) ?></td>
-                    <td><?= $this->cm->pointByContestAjax($d->school_id, 7, $category) ?></td>
-                    <td><?= $this->cm->pointByContestAjax($d->school_id, 8, $category) ?></td>
-                    <td><?= $this->cm->pointByContestAjax($d->school_id, 9, $category) ?></td>
-                    <td><?= $this->cm->pointByContestAjax($d->school_id, 10, $category) ?></td>
+                    <td><?= $this->cm->pointByContestAjax($d->school_id, 1, $category)[0] ?></td>
+                    <td><?= $this->cm->pointByContestAjax($d->school_id, 1, $category)[1] ?></td>
+                    <td><?= $this->cm->pointByContestAjax($d->school_id, 2, $category)[0] ?></td>
+                    <td><?= $this->cm->pointByContestAjax($d->school_id, 2, $category)[1] ?></td>
+                    <td><?= $this->cm->pointByContestAjax($d->school_id, 3, $category)[0] ?></td>
+                    <td><?= $this->cm->pointByContestAjax($d->school_id, 3, $category)[1] ?></td>
+                    <td><?= $this->cm->pointByContestAjax($d->school_id, 4, $category)[0] ?></td>
+                    <td><?= $this->cm->pointByContestAjax($d->school_id, 4, $category)[1] ?></td>
+                    <td><?= $this->cm->pointByContestAjax($d->school_id, 5, $category)[0] ?></td>
+                    <td><?= $this->cm->pointByContestAjax($d->school_id, 5, $category)[1] ?></td>
+                    <td><?= $this->cm->pointByContestAjax($d->school_id, 6, $category)[0] ?></td>
+                    <td><?= $this->cm->pointByContestAjax($d->school_id, 6, $category)[1] ?></td>
+                    <td><?= $this->cm->pointByContestAjax($d->school_id, 7, $category)[0] ?></td>
+                    <td><?= $this->cm->pointByContestAjax($d->school_id, 7, $category)[1] ?></td>
+                    <td><?= $this->cm->pointByContestAjax($d->school_id, 8, $category)[0] ?></td>
+                    <td><?= $this->cm->pointByContestAjax($d->school_id, 8, $category)[1] ?></td>
+                    <td><?= $this->cm->pointByContestAjax($d->school_id, 9, $category)[0] ?></td>
+                    <td><?= $this->cm->pointByContestAjax($d->school_id, 9, $category)[1] ?></td>
+                    <td><?= $this->cm->pointByContestAjax($d->school_id, 10, $category)[0] ?></td>
+                    <td><?= $this->cm->pointByContestAjax($d->school_id, 10, $category)[1] ?></td>
                     <td class="text-center"><?= $d->points ?></td>
                 </tr>
             <?php
