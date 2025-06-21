@@ -10,10 +10,10 @@
                 Dengan bangga, pengurus Pondok Pesantren Miftahul Ulum Kebun Baru mempersembahkan Sistem Informasi Musabaqoh Antar Murid Antar Madrasah Ranting (MUAMMAR) yang merupakan kegiatan tahunan.<br>
                 <hr>
                 <h6>Developer</h6>
-                <b>Sistem MUAMMAR Kebun Baru</b> ini dikembangkan oleh Tim Sekretaris III <a href="https://www.facebook.com/ponpeskebunbaru" target="_blank">PP. Miftahul Ulum Kebun Baru</a> <br>
+                <b>Sistem MUAMMAR Kebun Baru</b> ini dikembangkan oleh Staf Sekretaris Bagian Pengembangan Sistem dan Teknologi Informasi <a href="https://www.facebook.com/ponpeskebunbaru" target="_blank">PP. Miftahul Ulum Kebun Baru</a> <br>
                 <hr>
                 <h6>Release Version</h6>
-                Version 2.0.0
+                Version 2.1.0
                 </p>
             </div>
         </div>
