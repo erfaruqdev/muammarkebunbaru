@@ -54,6 +54,16 @@ class HomeModel extends CI_Model
         return 0;
     }
 
+    public function amountSchool()
+    {
+        $data = $this->db->select('COUNT(id) as total')->from('schools')->get()->row_object();
+        if ($data) {
+            return $data->total;
+        }
+
+        return 0;
+    }
+
     public function participants()
     {
         $data = $this->db->select('category, COUNT(id) as total')->from('participants')->group_by('category')->get()->result_object();

@@ -26,6 +26,7 @@ class Home extends CI_Controller
     {
         $data = [
             'school' => $this->hm->school(),
+            'amount' => $this->hm->amountSchool(),
             'participants' => $this->hm->participants(),
             'contests' => $this->hm->contests(),
             'contestsByMale' => $this->hm->contestsByGender(1),
