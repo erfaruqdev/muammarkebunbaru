@@ -137,7 +137,7 @@ class SchoolModel extends CI_Model
 
         $this->db->where(['id' => $id])->update('users', [
             'username' => $id,
-            'password' => password_hash('p2k1391', PASSWORD_DEFAULT)
+            'password' => password_hash('123456', PASSWORD_DEFAULT)
         ]);
 
         if ($this->db->affected_rows() <= 0) {
@@ -149,7 +149,7 @@ class SchoolModel extends CI_Model
 
         return [
             'status' => 200,
-            'message' => 'Username: '.$id.' - Password: p2k1391'
+            'message' => 'Username: '.$id.' - Password: 123456'
         ];
     }
 }

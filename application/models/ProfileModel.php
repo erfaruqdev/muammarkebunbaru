@@ -3,59 +3,132 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class ProfileModel extends CI_Model
 {
-    public function checkusername()
+    public $userId;
+    public function __construct()
     {
+        $this->userId = $this->session->userdata('user_id');
+    }
+
+    public function user()
+    {
+        return $this->db->get_where('users', ['id' => $this->userId])->row_object();
+    }
+
+    public function update()
+    {
+        $name = $this->input->post('name', true);
         $username = $this->input->post('username', true);
-        $checkUsername = $this->db->get_where('users', [
-            'username' => $username
-        ])->num_rows();
-        if ($checkUsername > 0) {
+        $password = $this->input->post('password', true);
+
+        if ($name == '' || $username == '' || $password == '') {
             return [
-                'status' => 400
-            ];
-        } else {
-            return [
-                'status' => 200
+                'status' => 400,
+                'message' => 'Pastikan semua bidang inputan sudah diisi'
             ];
         }
+
+        $user = $this->user();
+        if (!$user){
+            return [
+                'status' => 400,
+                'message' => 'Data user tidak valid'
+            ];
+        }
+
+        $regex = "/^[a-z]+$/";
+        if (!preg_match($regex, $username)){
+            return [
+                'status' => 400,
+                'message' => 'Username harus berufa huruf kecil tanpa spasi'
+            ];
+        }
+
+        if (strlen($username) < 6){
+            return [
+                'status' => 400,
+                'message' => 'Username harus minimal 6 karakter'
+            ];
+        }
+
+        if (!password_verify($password, $user->password)){
+            return [
+                'status' => 400,
+                'message' => 'Password salah'
+            ];
+        }
+
+        $this->db->where('id', $this->userId)->update('users', [
+            'name' => strtoupper($name),
+            'username' => $username
+        ]);
+
+        if ($this->db->affected_rows() <= 0) {
+            return [
+                'status' => 400,
+                'message' => 'Gagal memperbarui profil'
+            ];
+        }
+
+        return [
+            'status' => 200,
+            'message' => 'Sukses'
+        ];
     }
 
-    public function savechangeuser()
+    public function updatePassword()
     {
-        $username = $this->session->userdata('username');
-        $newUsername = $this->input->post('new_username', true);
-        $password = $this->input->post('current_password_change_username', true);
-
-        $getUser = $this->db->get_where('users', [
-            'username' => $username
-        ])->row_object();
-        $oldPassword = $getUser->password;
-        if (password_verify($password, $oldPassword) == FALSE) {
-            return 500;
-        } else {
-            $this->db->where('username', $username)->update('users', ['username' => $newUsername]);
-            $this->session->unset_userdata('username');
-            $this->session->set_userdata(['username' => $newUsername]);
-            return 200;
+        $currentPassword = $this->input->post('current_password', true);
+        $newPassword = $this->input->post('new_password', true);
+        $passwordConfirmation = $this->input->post('password_confirmation', true);
+        if ($currentPassword == '' || $newPassword == '' || $passwordConfirmation == ''){
+            return [
+                'status' => 400,
+                'message' => 'Pastikan semua bidang inputan sudah diisi'
+            ];
         }
-    }
 
-    public function savenewpassword()
-    {
-        $username = $this->input->post('current_username', true);
-        $oldPassword = $this->input->post('current_password', true);
-        $newPassword = $this->input->post('password', true);
-
-        $getUser = $this->db->get_where('users', [
-            'username' => $username
-        ])->row_object();
-        if (password_verify($oldPassword, $getUser->password) == FALSE) {
-            return 500;
-        } else {
-            $this->db->where('username', $username)->update('users', [
-                'password' => password_hash($newPassword, PASSWORD_DEFAULT)
-            ]);
-            return 200;
+        $user = $this->user();
+        if (!$user){
+            return [
+                'status' => 400,
+                'message' => 'Data user tidak valid'
+            ];
         }
+
+        if (strlen($newPassword) < 6){
+            return [
+                'status' => 400,
+                'message' => 'Username harus minimal 6 karakter'
+            ];
+        }
+
+        if ($newPassword != $passwordConfirmation){
+            return [
+                'status' => 400,
+                'message' => 'Password tidak valid'
+            ];
+        }
+
+        if (!password_verify($currentPassword, $user->password)){
+            return [
+                'status' => 400,
+                'message' => 'Password saat ini salah'
+            ];
+        }
+
+        $this->db->where('id', $this->userId)->update('users', [
+            'password' => password_hash($newPassword, PASSWORD_DEFAULT)
+        ]);
+        if ($this->db->affected_rows() <= 0) {
+            return [
+                'status' => 400,
+                'message' => 'Gagal memperbarui password'
+            ];
+        }
+
+        return [
+            'status' => 200,
+            'message' => 'Sukses'
+        ];
     }
 }

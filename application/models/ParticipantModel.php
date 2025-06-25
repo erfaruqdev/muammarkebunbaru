@@ -55,7 +55,7 @@ class ParticipantModel extends CI_Model
 
         $rows = 0;
         $arrays = [
-            1 => 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 6, 6, 1, 1, 9, 9
+            1 => 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 6, 6, 1, 1
         ];
 
         foreach ($name as $key => $value) {

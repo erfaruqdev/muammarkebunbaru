@@ -133,6 +133,7 @@ class ValuationModel extends CI_Model
             'contest_id' => $contest, 'category' => $category
         ])->order_by('nilai', 'desc')->get()->result_object();
         $points = [1 => 100, 95, 90, 87, 84, 81, 78, 75, 72, 69, 66, 63, 60, 57, 54, 51, 48, 45, 42, 39, 36, 33, 30];
+        $pointCerCer = [1 => 150, 140, 130, 100, 97, 94, 91, 88, 85, 82, 79, 76, 73, 70, 67, 64, 61, 58, 55, 52, 49, 46, 30];
 
         if ($result) {
             $no = 0;
@@ -142,7 +143,11 @@ class ValuationModel extends CI_Model
                     $no++;
                 }
                 if ($no >= 1 && $no <= 23) {
-                    $point = $points[$no];
+                    if ($contest == 1) {
+                        $point = $pointCerCer[$no];
+                    }else{
+                        $point = $points[$no];
+                    }
                 }else{
                     $point = 30;
                 }

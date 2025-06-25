@@ -12,19 +12,19 @@
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <div class="card">
-                    <img src="<?= base_url() ?>assets/images/regulations/1.jpg" width="100" alt="Foto" class="product-image" loading="lazy">
+                    <img src="<?= base_url() ?>assets/images/regulations/20.jpg" width="100" alt="Foto" class="product-image" loading="lazy">
                 </div>
             </div>
         </div>
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <div class="card">
-                    <img src="<?= base_url() ?>assets/images/regulations/2.jpg" width="100" alt="Foto" class="product-image" loading="lazy">
+                    <img src="<?= base_url() ?>assets/images/regulations/21.jpg" width="100" alt="Foto" class="product-image" loading="lazy">
                 </div>
             </div>
         </div>
         <?php
-        for ($i = 3; $i <= 12; $i++){
+        for ($i = 22; $i <= 35; $i++){
         ?>
             <div class="row justify-content-center">
                 <div class="col-lg-8">
