@@ -238,7 +238,6 @@
                         <tbody>
                             <?php
                             $no = 1;
-                            $total = 0;
                             foreach ($mmu as $d) {
                                 $contest1 = $this->cm->checkContestPerMmu($d->id, 1, $category);
                                 $contest2 = $this->cm->checkContestPerMmu($d->id, 2, $category);
@@ -251,7 +250,7 @@
                                 $contest9 = $this->cm->checkContestPerMmu($d->id, 9, $category);
                                 $contest10 = $this->cm->checkContestPerMmu($d->id, 10, $category);
                                 $contest11 = $this->cm->checkContestPerMmu($d->id, 11, $category);
-                                $total += $contest1 + $contest2 + $contest3 + $contest4 + $contest5 + $contest6 + $contest7 + $contest8 + $contest9 + $contest10 + $contest11;
+                                $total = $contest1 + $contest2 + $contest3 + $contest4 + $contest5 + $contest6 + $contest7 + $contest8 + $contest9 + $contest10 + $contest11;
                             ?>
                                 <tr>
                                     <td class="text-center"><?= $no++ ?></td>
