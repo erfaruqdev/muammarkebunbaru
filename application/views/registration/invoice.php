@@ -272,7 +272,7 @@
                         </td>
                         <td class="text-center">
                             <p style="margin-top: 60px;">
-                                <u><b>ABDUR ROUF</b></u>
+                                <u><b>RIZAL HAFIQI</b></u>
                             </p>
                         </td>
                     </tr>
