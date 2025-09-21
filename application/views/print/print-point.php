@@ -206,7 +206,7 @@
             if ($valuations) {
                 ?>
                 <h6 class="text-center mb-1">
-                    DAFTAR NILAI LOMBA <?= $contest ?> MUAMMAR 1444 KEBUN BARU
+                    DAFTAR NILAI LOMBA <?= $contest ?> MUAMMAR 1447 KEBUN BARU
                 </h6>
                 <table class="tablestripped table-xl">
                     <thead>
@@ -225,11 +225,11 @@
                     foreach ($valuations as $d) {
                         ?>
                         <tr>
-                            <td class="text-center"><?= $d->undian ?></td>
-                            <td><?= $d->name ?></td>
-                            <td><?= $d->mmu ?></td>
-                            <td class="text-center"><?= $d->nilai ?></td>
-                            <td class="text-center"><?= $d->point ?></td>
+                            <td class="text-center"><?= $d['undi'] ?></td>
+                            <td><?= $d['name'] ?></td>
+                            <td><?= $d['mmu'] ?></td>
+                            <td class="text-center"><?= $d['nilai'] ?></td>
+                            <td class="text-center"><?= $d['point'] ?></td>
                             <td class="text-center"><?= $no++ ?></td>
                         </tr>
                         <?php

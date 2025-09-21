@@ -8,7 +8,7 @@ if ($status == 200) {
                 <th rowspan="2" style="vertical-align: middle">MMU</th>
                 <th rowspan="2" style="vertical-align: middle">PJGB</th>
                 <th rowspan="2" style="vertical-align: middle">GB</th>
-                <th colspan="20" style="vertical-align: middle; text-align: center">LOMBA</th>
+                <th colspan="22" style="vertical-align: middle; text-align: center">LOMBA</th>
                 <th rowspan="2" style="vertical-align: middle" class="text-center">POIN</th>
             </tr>
             <tr>
@@ -20,7 +20,8 @@ if ($status == 200) {
                 <td colspan="2" class="text-center">PS</td>
                 <td colspan="2" class="text-center">PID</td>
                 <td colspan="2" class="text-center">MK</td>
-                <td colspan="2" class="text-center">SN</td>
+                <td colspan="2" class="text-center">ON</td>
+                <td colspan="2" class="text-center">OT</td>
                 <td colspan="2" class="text-center">TH</td>
             </tr>
         </thead>
@@ -57,6 +58,8 @@ if ($status == 200) {
                     <td><?= $this->cm->pointByContestAjax($d->school_id, 9, $category)[1] ?></td>
                     <td><?= $this->cm->pointByContestAjax($d->school_id, 10, $category)[0] ?></td>
                     <td><?= $this->cm->pointByContestAjax($d->school_id, 10, $category)[1] ?></td>
+                    <td><?= $this->cm->pointByContestAjax($d->school_id, 11, $category)[0] ?></td>
+                    <td><?= $this->cm->pointByContestAjax($d->school_id, 11, $category)[1] ?></td>
                     <td class="text-center"><?= $d->points ?></td>
                 </tr>
             <?php

@@ -69,6 +69,7 @@ class Valuation extends CI_Controller
             'valuations' => $this->vm->valuation(),
             'contest' => $this->vm->getContestById()
         ];
+//        var_dump($this->vm->valuation());
         $this->load->view('print/print-point', $data);
     }
 }

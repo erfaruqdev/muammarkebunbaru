@@ -183,79 +183,79 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col-7">
-                <img class="logo" src="<?= base_url() ?>assets/images/header-print-color.png" alt="">
-            </div>
-            <div class="col-5 text-right pt-2">
-                <h1 class="invoice-title"><?= $jury ?></h1>
-            </div>
+<div class="container">
+    <div class="row">
+        <div class="col-7">
+            <img class="logo" src="<?= base_url() ?>assets/images/header-print-color.png" alt="">
         </div>
-        <div class="border"></div>
-        <div class="row">
-            <?php
-            $categoryText = [1 => 'PUTRA', 'PUTRI'];
-            if ($status == 200) {
-            ?>
-                <div class="col-12 text-center <?= ($name == '') ? 'mb-1' : '' ?>">
-                    <h4>DAFTAR PESERTA LOMBA <?= $contest ?> <?= $categoryText[$category] ?></h4>
-                </div>
-                <?php
-                if ($name != '') {
-                ?>
-                    <div class="col-5 mb-1 text-bold mt-1">
-                        JURI : UST. <?= $name ?>
-                    </div>
-                    <div class="col-7 mb-1 text-bold text-right mt-1">
-                        PENILAIAN : <?= $evaluation ?>
-                    </div>
-                <?php } ?>
-                <table id="table">
-                    <thead>
-                        <tr>
-                            <th>UNDI</th>
-                            <th>ID MMU</th>
-                            <th>NAMA</th>
-                            <th>MMU</th>
-                            <th>ALAMAT</th>
-                            <th>NILAI</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        foreach ($data as $d) {
-                        ?>
-                            <tr>
-                                <td class="text-center"><?= $d->undian ?></td>
-                                <td class="text-center"><?= $d->school_id ?></td>
-                                <td><?= $d->name ?></td>
-                                <td><?= $d->mmu ?></td>
-                                <td><?= $d->village.', '.$d->city ?></td>
-                                <td></td>
-                            </tr>
-                        <?php
-                        }
-                        ?>
-                    </tbody>
-                </table>
-            <?php
-            } else {
-            ?>
-                <div class="col-12 text-center" style="color: red">
-                    <h4 class="mb-1"><?= $data ?></h4>
-                </div>
-            <?php
-            }
-            ?>
+        <div class="col-5 text-right pt-2">
+            <h1 class="invoice-title"><?= $jury ?></h1>
         </div>
     </div>
-    <script>
-        window.print()
-        setTimeout(function() {
-            window.close()
-        }, 2000);
-    </script>
+    <div class="border"></div>
+    <div class="row">
+        <?php
+        $categoryText = [1 => 'PUTRA', 'PUTRI'];
+        if ($status == 200) {
+            ?>
+            <div class="col-12 text-center <?= ($name == '') ? 'mb-1' : '' ?>">
+                <h4>DAFTAR PESERTA LOMBA <?= $contest ?> <?= $categoryText[$category] ?></h4>
+            </div>
+            <?php
+            if ($name != '') {
+                ?>
+                <div class="col-5 mb-1 text-bold mt-1">
+                    JURI : UST. <?= $name ?>
+                </div>
+                <div class="col-7 mb-1 text-bold text-right mt-1">
+                    PENILAIAN : <?= $evaluation ?>
+                </div>
+            <?php } ?>
+            <table id="table">
+                <thead>
+                <tr>
+                    <th>UNDI</th>
+                    <th>ID MMU</th>
+                    <th>NAMA</th>
+                    <th>MMU</th>
+                    <th>ALAMAT</th>
+                    <th>NILAI</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php
+                foreach ($data as $d) {
+                    ?>
+                    <tr>
+                        <td class="text-center"><?= $d->undian ?></td>
+                        <td class="text-center"><?= $d->school_id ?></td>
+                        <td><?= $d->name ?></td>
+                        <td><?= $d->mmu ?></td>
+                        <td><?= $d->village.', '.$d->city ?></td>
+                        <td></td>
+                    </tr>
+                    <?php
+                }
+                ?>
+                </tbody>
+            </table>
+            <?php
+        } else {
+            ?>
+            <div class="col-12 text-center" style="color: red">
+                <h4 class="mb-1"><?= $data ?></h4>
+            </div>
+            <?php
+        }
+        ?>
+    </div>
+</div>
+<script>
+    window.print()
+    setTimeout(function() {
+        window.close()
+    }, 2000);
+</script>
 </body>
 
 </html>

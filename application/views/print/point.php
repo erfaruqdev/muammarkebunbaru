@@ -195,6 +195,10 @@
             -webkit-transform: translateX(-50%) translateY(-50%) rotate(-90deg);
             transform:  translateX(-50%) translateY(-50%) rotate(-90deg);
         }
+
+        .border-l {
+            border-left: 1px solid #999797;
+        }
     </style>
 </head>
 
@@ -219,10 +223,8 @@
                             <tr>
                                 <th rowspan="2">NO</th>
                                 <th rowspan="2">MMU</th>
-                                <th rowspan="2">ALAMAT</th>
-                                <th rowspan="2">PJGB</th>
-                                <th rowspan="2">GB</th>
-                                <th colspan="20">LOMBA</th>
+                                <th rowspan="2">PJGB/GB</th>
+                                <th colspan="22">LOMBA</th>
                                 <th rowspan="2">POIN</th>
                             </tr>
                             <tr>
@@ -234,7 +236,8 @@
                                 <td colspan="2" class="text-center">PS</td>
                                 <td colspan="2" class="text-center">PID</td>
                                 <td colspan="2" class="text-center">MK</td>
-                                <td colspan="2" class="text-center">SN</td>
+                                <td colspan="2" class="text-center">ON</td>
+                                <td colspan="2" class="text-center">OT</td>
                                 <td colspan="2" class="text-center">TH</td>
                             </tr>
                         </thead>
@@ -252,34 +255,35 @@
                                 $contest8 = $this->cm->pointByContest($d->school_id, 8, $category);
                                 $contest9 = $this->cm->pointByContest($d->school_id, 9, $category);
                                 $contest10 = $this->cm->pointByContest($d->school_id, 10, $category);
+                                $contest11 = $this->cm->pointByContest($d->school_id, 11, $category);
                             ?>
                                 <tr>
                                     <td class="text-center"><?= $no++ ?></td>
-                                    <td><?= $d->name ?></td>
-                                    <td><?= $d->village . ', ' . $d->city ?></td>
-                                    <td><?= $d->pjgb ?></td>
-                                    <td><?= $d->gb ?></td>
+                                    <td><?= $d->name ?> <br> <?= $d->village . ', ' . $d->city ?></td>
+                                    <td>- <?= $d->pjgb ?> <br> - <?= $d->gb ?></td>
                                     <td><?= ($contest1) ? $contest1->point : 0 ?></td>
                                     <td><?= ($contest1) ? $contest1->rank : 0 ?></td>
-                                    <td><?= ($contest2) ? $contest2->point : 0 ?></td>
+                                    <td class="border-l"><?= ($contest2) ? $contest2->point : 0 ?></td>
                                     <td><?= ($contest2) ? $contest2->rank : 0 ?></td>
-                                    <td><?= ($contest3) ? $contest3->point : 0 ?></td>
+                                    <td class="border-l"><?= ($contest3) ? $contest3->point : 0 ?></td>
                                     <td><?= ($contest3) ? $contest3->rank : 0 ?></td>
-                                    <td><?= ($contest4) ? $contest4->point : 0 ?></td>
+                                    <td class="border-l"><?= ($contest4) ? $contest4->point : 0 ?></td>
                                     <td><?= ($contest4) ? $contest4->rank : 0 ?></td>
-                                    <td><?= ($contest5) ? $contest5->point : 0 ?></td>
+                                    <td class="border-l"><?= ($contest5) ? $contest5->point : 0 ?></td>
                                     <td><?= ($contest5) ? $contest5->rank : 0 ?></td>
-                                    <td><?= ($contest6) ? $contest6->point : 0 ?></td>
+                                    <td class="border-l"><?= ($contest6) ? $contest6->point : 0 ?></td>
                                     <td><?= ($contest6) ? $contest6->rank : 0 ?></td>
-                                    <td><?= ($contest7) ? $contest7->point : 0 ?></td>
+                                    <td class="border-l"><?= ($contest7) ? $contest7->point : 0 ?></td>
                                     <td><?= ($contest7) ? $contest7->rank : 0 ?></td>
-                                    <td><?= ($contest8) ? $contest8->point : 0 ?></td>
+                                    <td class="border-l"><?= ($contest8) ? $contest8->point : 0 ?></td>
                                     <td><?= ($contest8) ? $contest8->rank : 0 ?></td>
-                                    <td><?= ($contest9) ? $contest9->point : 0 ?></td>
+                                    <td class="border-l"><?= ($contest9) ? $contest9->point : 0 ?></td>
                                     <td><?= ($contest9) ? $contest9->rank : 0 ?></td>
-                                    <td><?= ($contest10) ? $contest10->point : 0 ?></td>
+                                    <td class="border-l"><?= ($contest10) ? $contest10->point : 0 ?></td>
                                     <td><?= ($contest10) ? $contest10->rank : 0 ?></td>
-                                    <td class="text-center"><?= $d->points ?></td>
+                                    <td class="border-l"><?= ($contest11) ? $contest11->point : 0 ?></td>
+                                    <td><?= ($contest11) ? $contest11->rank : 0 ?></td>
+                                    <td class="text-center border-l"><?= $d->points ?></td>
                                 </tr>
                             <?php
                             }
