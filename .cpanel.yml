@@ -1,0 +1,57 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/kebunbar/muammar.kebunbaru.id
+
+    # ensure base folder
+    - /bin/mkdir -p $DEPLOYPATH
+    - /bin/mkdir -p $DEPLOYPATH/application
+
+    # refresh safe root folders
+    - /bin/rm -rf $DEPLOYPATH/system
+    - /bin/rm -rf $DEPLOYPATH/assets
+    - /bin/rm -rf $DEPLOYPATH/template
+
+    - /bin/cp -R system $DEPLOYPATH/
+    - /bin/cp -R assets $DEPLOYPATH/
+    - /bin/sh -c 'if [ -d template ]; then /bin/cp -R template "$DEPLOYPATH/"; fi'
+
+    # optional: refresh vendor if exists
+    - /bin/sh -c 'if [ -d vendor ]; then /bin/rm -rf "$DEPLOYPATH/vendor"; /bin/cp -R vendor "$DEPLOYPATH/"; fi'
+
+    # refresh safe application folders
+    # tidak menyentuh application/config, application/cache, application/logs
+    - /bin/rm -rf $DEPLOYPATH/application/controllers
+    - /bin/rm -rf $DEPLOYPATH/application/models
+    - /bin/rm -rf $DEPLOYPATH/application/views
+    - /bin/rm -rf $DEPLOYPATH/application/core
+    - /bin/rm -rf $DEPLOYPATH/application/helpers
+    - /bin/rm -rf $DEPLOYPATH/application/hooks
+    - /bin/rm -rf $DEPLOYPATH/application/libraries
+    - /bin/rm -rf $DEPLOYPATH/application/language
+    - /bin/rm -rf $DEPLOYPATH/application/third_party
+
+    - /bin/cp -R application/controllers $DEPLOYPATH/application/
+    - /bin/cp -R application/models $DEPLOYPATH/application/
+    - /bin/cp -R application/views $DEPLOYPATH/application/
+    - /bin/cp -R application/core $DEPLOYPATH/application/
+    - /bin/cp -R application/helpers $DEPLOYPATH/application/
+    - /bin/cp -R application/hooks $DEPLOYPATH/application/
+    - /bin/cp -R application/libraries $DEPLOYPATH/application/
+    - /bin/cp -R application/language $DEPLOYPATH/application/
+    - /bin/cp -R application/third_party $DEPLOYPATH/application/
+
+    # selected config only
+    # jangan overwrite database.php dan config.php production
+    - /bin/mkdir -p $DEPLOYPATH/application/config
+    - /bin/cp application/config/routes.php $DEPLOYPATH/application/config/
+    - /bin/cp application/config/autoload.php $DEPLOYPATH/application/config/
+    - /bin/cp application/config/constants.php $DEPLOYPATH/application/config/
+
+    # root files
+    - /bin/cp index.php $DEPLOYPATH/
+    - /bin/cp .htaccess $DEPLOYPATH/
+    - /bin/sh -c 'if [ -f favicon.ico ]; then /bin/cp favicon.ico "$DEPLOYPATH/"; fi'
+    - /bin/sh -c 'if [ -f robots.txt ]; then /bin/cp robots.txt "$DEPLOYPATH/"; fi'
+
+    - echo "CI3 muammar deploy SUCCESS"
