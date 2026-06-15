@@ -207,7 +207,7 @@ class Setting extends CI_Controller
                 'id' => $no++,
                 'name' => $item->name,
                 'username' => $item->id,
-                'password' => password_hash(123456, PASSWORD_DEFAULT),
+                'password' => password_hash('mu4rp2k', PASSWORD_DEFAULT),
                 'role' => 'MMU',
                 'status' => 'ACTIVE',
                 'type' => 3
