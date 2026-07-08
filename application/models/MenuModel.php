@@ -5,11 +5,34 @@ class MenuModel extends CI_Model
 {
     public function getMenu($role)
     {
-        $this->db->select('*')->from('user_menu')->join('menus', 'menus.id = menu_id');
-        if ($role != 'DEV') {
-            $this->db->where(['role' => $role, 'status' => 'ACTIVE']);
+        $this->db
+            ->select([
+                'm.id',
+                'm.name',
+                'm.icon',
+                'm.url',
+                'm.status',
+                'MIN(um.sort_order) AS sort_order',
+            ])
+            ->from('menus m')
+            ->join('user_menu um', 'um.menu_id = m.id', 'left')
+            ->where('m.status', 'ACTIVE');
+
+        if ($role !== 'DEV') {
+            $this->db->where('um.role', $role);
         }
-        return $this->db->group_by('menu_id')->order_by('order', 'ASC')->get()->result_object();
+
+        return $this->db
+            ->group_by([
+                'm.id',
+                'm.name',
+                'm.icon',
+                'm.url',
+                'm.status',
+            ])
+            ->order_by('sort_order', 'ASC')
+            ->get()
+            ->result_object();
     }
 
     public function getdata()
