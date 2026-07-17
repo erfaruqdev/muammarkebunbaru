@@ -271,7 +271,7 @@
                         Kebun Baru, <?= datetimeIDDate($data->created_at) ?> <br>
                         Bendahara <br>
                         <p style="margin-top: 60px;">
-                            <u><b>RIZAL HAFIQI</b></u>
+                            <u><b>LUKMAN YANTO</b></u>
                         </p>
                     </div>
                 </div>
@@ -374,7 +374,7 @@
                         Kebun Baru, <?= datetimeIDDate($data->created_at) ?> <br>
                         Bendahara <br>
                         <p style="margin-top: 60px;">
-                            <u><b>RIZAL HAFIQI</b></u>
+                            <u><b>LUKMAN YANTO</b></u>
                         </p>
                     </div>
                 </div>
