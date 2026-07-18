@@ -24,7 +24,7 @@
             </div>
         </div>
         <?php
-        for ($i = 22; $i <= 35; $i++){
+        for ($i = 22; $i <= 38; $i++){
         ?>
             <div class="row justify-content-center">
                 <div class="col-lg-8">
