@@ -200,6 +200,38 @@
             }
         })
     }
+
+    const loadChampionSummary = () => {
+        let category = $('#changeCategoryChampionSummary').val()
+
+        $('#category-champion-summary-print').val(category)
+
+        if (category == '') {
+            $('#show-champion-summary').html('')
+            $('#button-print-champion-summary').prop('disabled', true)
+            return false
+        }
+
+        $('#button-print-champion-summary').prop('disabled', false)
+
+        $.ajax({
+            url: '<?= base_url() ?>championship/loadchampionsummary',
+            method: 'POST',
+            data: {
+                category
+            },
+            success: res => {
+                $('#show-champion-summary').html(res)
+            }
+        })
+    }
+
+    $('#modal-champion-summary').on('hidden.bs.modal', () => {
+        $('#changeCategoryChampionSummary').val('')
+        $('#category-champion-summary-print').val('')
+        $('#show-champion-summary').html('')
+        $('#button-print-champion-summary').prop('disabled', true)
+    })
 </script>
 </body>
 

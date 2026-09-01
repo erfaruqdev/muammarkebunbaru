@@ -3,7 +3,7 @@
     <!-- Main content -->
     <section class="content p-3">
         <div class="row mb-2">
-            <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3 mb-2">
+            <div class="col-sm-12 col-md-6 col-lg-2 col-xl-2 mb-2">
                 <select id="changeCategory" class="form-control form-control-sm w-100" onchange="loadData()">
                     <option value="">..:Kategori:..</option>
                     <option value="1">PUTRA</option>
@@ -26,17 +26,27 @@
                 <form action="<?= base_url() ?>championship/printchampions" target="_blank" method="POST">
                     <input type="hidden" name="category" id="category-result-champion" value="">
                     <input type="hidden" name="contest" id="contest-result-champion" value="">
-                    <button type="submit" class="btn btn-success btn-sm btn-block">
+                    <button type="submit" class="btn btn-outline-primary btn-sm btn-block">
                         <i class="fa fa-print"></i> Print Out
                     </button>
                 </form>
             </div>
-            <div class="col-sm-12 col-md-6 col-lg-2 col-xl-2 mb-2">
-                <button type="button" class="btn btn-success btn-block btn-sm" data-toggle="modal" data-target="#modal-point">
-                    <i class="fa fa-award"></i> Poin Umum
+            <div class="col-sm-12 col-md-6 col-lg-2 col-xl-2">
+                <button
+                        type="button"
+                        class="btn btn-outline-primary btn-block btn-sm"
+                        data-toggle="modal"
+                        data-target="#modal-champion-summary"
+                >
+                    <i class="fa fa-trophy"></i> Poin Kejuaraan
                 </button>
             </div>
-            <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3 mb-2">
+            <div class="col-sm-12 col-md-6 col-lg-2 col-xl-2 mb-2">
+                <button type="button" class="btn btn-outline-primary btn-block btn-sm" data-toggle="modal" data-target="#modal-point">
+                    <i class="fa fa-award"></i> Poin Penilaian
+                </button>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-2 col-xl-2 mb-2">
                 <button type="button" class="btn btn-primary btn-block btn-sm" data-toggle="modal" data-target="#modal-champion">
                     <i class="fa fa-plus-circle"></i> Tambah Juarawan
                 </button>
@@ -54,6 +64,62 @@
     </section>
     <!-- /.content -->
 </div>
+
+    <div class="modal fade" id="modal-champion-summary" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header py-2">
+                    <h6 class="modal-title w-75">Poin Kejuaraan</h6>
+
+                    <select
+                            onchange="loadChampionSummary()"
+                            id="changeCategoryChampionSummary"
+                            class="form-control form-control-sm w-25"
+                    >
+                        <option value="">..:Kategori:..</option>
+                        <option value="1">PUTRA</option>
+                        <option value="2">PUTRI</option>
+                    </select>
+                </div>
+
+                <div class="modal-body" style="max-height: 80vh; overflow-y: auto">
+                    <div id="show-champion-summary"></div>
+                </div>
+
+                <div class="modal-footer justify-content-between p-2">
+                    <button
+                            type="button"
+                            class="btn btn-danger btn-sm"
+                            data-dismiss="modal"
+                    >
+                        Tutup
+                    </button>
+
+                    <form
+                            action="<?= base_url() ?>championship/printchampionsummary"
+                            target="_blank"
+                            method="POST"
+                    >
+                        <input
+                                type="hidden"
+                                name="category"
+                                id="category-champion-summary-print"
+                                value=""
+                        >
+
+                        <button
+                                type="submit"
+                                disabled
+                                class="btn btn-primary btn-sm"
+                                id="button-print-champion-summary"
+                        >
+                            <i class="fa fa-print"></i> Print Out
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
 <div class="modal fade" id="modal-champion" data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog modal-default">

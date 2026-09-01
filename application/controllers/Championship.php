@@ -83,4 +83,43 @@ class Championship extends CI_Controller
 
         echo json_encode($result);
     }
+
+    public function loadChampionSummary()
+    {
+        $category = $this->input->post('category', true);
+
+        if (!in_array($category, ['1', '2'], true)) {
+            $data = [
+                'status' => 400,
+                'data' => 'Kategori tidak valid'
+            ];
+
+            $this->load->view('championship/ajax-champion-summary', $data);
+            return;
+        }
+
+        $data = [
+            'status' => 200,
+            'data' => $this->cm->get_champion_summary($category)
+        ];
+
+        $this->load->view('championship/ajax-champion-summary', $data);
+    }
+
+    public function printChampionSummary()
+    {
+        $category = $this->input->post('category', true);
+
+        if (!in_array($category, ['1', '2'], true)) {
+            show_error('Kategori tidak valid.', 400);
+        }
+
+        $data = [
+            'title' => 'Print Out Rekap Kejuaraan',
+            'data' => $this->cm->get_champion_summary($category),
+            'category' => $category
+        ];
+
+        $this->load->view('print/champion-summary', $data);
+    }
 }

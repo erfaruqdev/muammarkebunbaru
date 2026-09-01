@@ -288,4 +288,33 @@ class ChampionshipModel extends CI_Model
 
         return [0, 0];
     }
+
+    public function get_champion_summary($category)
+    {
+        return $this->db
+            ->select('
+            schools.id,
+            schools.name AS madrasah,
+            schools.pjgb,
+            schools.gb,
+            COUNT(DISTINCT champions.contest_id) AS jumlah_contest_dijuarai,
+            COALESCE(SUM(champions.point), 0) AS jumlah_point
+        ')
+            ->from('schools')
+            ->join(
+                'champions',
+                'champions.school_id = schools.id
+             AND champions.category = ' . $this->db->escape($category),
+                'left'
+            )
+            ->group_by([
+                'schools.id',
+                'schools.name',
+                'schools.pjgb',
+                'schools.gb',
+            ])
+            ->order_by('jumlah_point', 'DESC')
+            ->get()
+            ->result();
+    }
 }
