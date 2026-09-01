@@ -202,21 +202,79 @@ class ChampionshipModel extends CI_Model
         $contest = $this->input->post('contest', true);
         $category = $this->input->post('category', true);
 
-        if ($contest == 1 || $contest == 2) {
-            $point = [1 => 4, 3, 2];
-        } else {
-            $point = [1 => 3, 2, 1];
+        $contestData = $this->db
+            ->get_where('contests', ['id' => $contest])
+            ->row_object();
+
+        if (!$contestData) {
+            return [
+                'status' => 400,
+                'message' => 'Lomba tidak valid'
+            ];
+        }
+
+        if (!in_array($category, ['1', '2'], true)) {
+            return [
+                'status' => 400,
+                'message' => 'Kategori tidak valid'
+            ];
+        }
+
+        if (!$rank || !is_array($rank)) {
+            return [
+                'status' => 400,
+                'message' => 'Data juara tidak valid'
+            ];
+        }
+
+        $allowedRanks = ($contest == 2)
+            ? [1]
+            : [1, 2, 3];
+
+        foreach (array_keys($rank) as $key) {
+            if (!in_array((int) $key, $allowedRanks, true)) {
+                return [
+                    'status' => 400,
+                    'message' => 'Peringkat juara tidak valid'
+                ];
+            }
+        }
+
+        $existingChampion = $this->db
+            ->get_where('champions', [
+                'contest_id' => $contest,
+                'category' => $category
+            ])
+            ->num_rows();
+
+        $maxChampion = ($contest == 2) ? 1 : 3;
+
+        if (($existingChampion + count($rank)) > $maxChampion) {
+            return [
+                'status' => 400,
+                'message' => 'Kejuaraan untuk lomba terpilih melebihi batas'
+            ];
+        }
+
+        $schoolIds = array_values($rank);
+
+        if (count($schoolIds) !== count(array_unique($schoolIds))) {
+            return [
+                'status' => 400,
+                'message' => 'MMU tidak boleh menempati lebih dari satu peringkat'
+            ];
         }
 
         $datas = [];
+
         foreach ($rank as $key => $value) {
             $check = $this->checkMMU($value, $contest, $category);
+
             if ($check[0] == 400) {
                 return [
                     'status' => $check[0],
                     'message' => $check[1]
                 ];
-                break;
             }
 
             $datas[] = [
@@ -224,11 +282,12 @@ class ChampionshipModel extends CI_Model
                 'contest_id' => $contest,
                 'category' => $category,
                 'rank' => $key,
-                'point' => $point[$key]
+                'point' => $contestData->poin - ($key - 1)
             ];
         }
 
         $this->db->insert_batch('champions', $datas);
+
         if ($this->db->affected_rows() <= 0) {
             return [
                 'status' => 400,
