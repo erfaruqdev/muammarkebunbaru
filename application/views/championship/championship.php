@@ -132,7 +132,7 @@
                     <div class="form-group row">
                         <label for="contest" class="col-sm-5 col-form-label">Jenis Lomba</label>
                         <div class="col-sm-7">
-                            <select id="contest" name="contest" class="form-control w-100">
+                            <select id="contest" name="contest" class="form-control w-100" onchange="changeContest(this)">
                                 <option value="">..:Pilih:..</option>
                                 <?php
                                 foreach ($contest as $c) {
