@@ -117,11 +117,20 @@ class ListContestantModel extends CI_Model
             $head = 'JURI';
         } else {
             $getJury = $this->db->get_where('juries', [
-                'type' => $jury, 'category' => $category, 'contest_id' => $contest
+                'type' => $jury,
+                'category' => $category,
+                'contest_id' => $contest
             ])->row_object();
-            $juryName = $getJury->name;
-            $evaluation = $getJury->evaluation;
-            $head = $juries[$jury];
+
+            if ($getJury) {
+                $juryName = $getJury->name;
+                $evaluation = $getJury->evaluation;
+            } else {
+                $juryName = '';
+                $evaluation = '';
+            }
+
+            $head = $juries[$jury] ?? 'JURI';
         }
 
         $this->db->select('a.*, b.name AS mmu, b.undian, b.village, b.city')->from('participants AS a');
