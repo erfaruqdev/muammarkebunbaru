@@ -116,6 +116,7 @@ class Championship extends CI_Controller
 
         $data = [
             'title' => 'Print Out Rekap Kejuaraan',
+            'status' => 200,
             'data' => $this->cm->get_champion_summary($category),
             'category' => $category
         ];
